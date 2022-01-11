@@ -1,0 +1,79 @@
+SMALL
+
+1. command: git status 
+   options: allows you to check the status of git, whether files are being tracked or need to be committed
+
+2. command: rm -rf
+   argument: ./Sample
+   options: allows you to delete folders that are not empty
+
+3. argument: usr/bin/ruby and 'link'
+   command: -e, $(), curl 'link'
+   options: -e -
+            $() - allows you to execute a command inside another command
+            cURL - stands for client URL, used to transfer data to and from a server,  
+            add link after
+   /usr/bin/ruby: folder named "ruby" that is inside of a folder named "bin", that is 
+            inside of a folder named "usr", /usr is the root
+            
+______________________________________________________________________________________
+
+MEDIUM
+
+1.
+$ pwd
+/Users/ciaracloud/desktop/DigitalCrafts/week1/day1
+$ mkdir my-music
+$ cd my-music
+$ mkdir r_b country
+$ cd r_b
+$ mkdir alicia_keys miguel
+$ cd alicia_keys
+$ mkdir the_element_of_freedom the_diary_of_alicia_keys
+$ cd the_element_of_freedom
+$ touch like_the_sea.mp3
+$ cd ..
+$ cd ..(not sure how many of these i used)
+$ cd ..
+$ cd miguel
+$ mkdir all_i_want_is_you kaleidoscope_dream
+$ cd all_i_want_is_you
+$ touch sure_thing.mp3 hero.mp3
+$ cd ..
+$ cd ..
+$ cd ..
+$ cd country
+$ mkdir rascal_flatts zac_brown_band
+$ cd rascal_flatts
+$ mkdir me_and_my_gang back_to_us
+$ cd me_and_my_gang
+$ touch my_wish.mp3 stand.mp3
+$ cd ..
+$ cd ..
+$ cd zac_brown_band
+$ mkdir the_owl the_comeback
+$ cd the_comeback
+$ touch same_boat.mp3 slow_burn.mp3
+
+2.
+$ pwd
+/Users/ciaracloud/desktop
+$ cd digitalcrafts/week1/day1
+$ mkdir project
+$ cd project
+$ mkdir assests css js
+$ touch index.html
+$ cd assests
+$ touch logo.svg photo.jpg
+$ cd ..
+$ cd css
+$ touch styles.css
+$ cd ..
+$ cd js
+$ touch scripts.js
+
+______________________________________________________________________________________
+
+LARGE
+
+
