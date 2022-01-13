@@ -115,9 +115,41 @@ def tenPercent():
 
 # calculateTip()
 
-list = [5,10,20,22,6,23,9,0,1]
 
 
-list.sort()
+# sortlist = [5,10,20,22,6,23,9,0,1]
 
-print("This is the largest number", list[-1])
+# print(sortlist.sort())
+# print(sortlist)
+
+# print("This is the largest number", list[-1])
+
+# print(list.sort())
+
+myString = "SWEET"
+
+finishedStatement = ""
+
+for letter in myString:
+    if letter == "S":
+        numberFive = "5" 
+        finishedStatement = finishedStatement + numberFive
+    elif letter == "E":
+        numberThree = "3"
+        finishedStatement = finishedStatement + numberThree
+    elif letter == "T":
+        numberSeven = "7"
+        finishedStatement = finishedStatement + numberSeven
+    elif letter == "A":
+        letterFour = "4"
+        finishedStatement = finishedStatement + numberFour
+    elif letter == "G":
+        numberSix = "6"
+        finishedStatement = finishedStatement + numberSix
+    elif letter == "O":
+        numberZero = "0"
+        finishedStatement = finishedStatement + numberZero
+    else:
+        finishedStatement = finishedStatement + letter
+print(finishedStatement)
+    
