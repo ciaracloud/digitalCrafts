@@ -34,27 +34,27 @@
 # while choice != "n":
 #     print(catImage)
 
-def printCat():
-    mouse = "squeek"
-    print("""
-         _._     _,-'""`-._
-     (,-.`._,'(       |\`-/|
-         `-.-' \ )-`( , o o)
-     -bf-      `-    \`_`"'-
-     """)
-    return
+# def printCat():
+#     mouse = "squeek"
+#     print("""
+#          _._     _,-'""`-._
+#      (,-.`._,'(       |\`-/|
+#          `-.-' \ )-`( , o o)
+#      -bf-      `-    \`_`"'-
+#      """)
+#     return
 
-while choice != "n":
-    printCat()
-    choice
+# while choice != "n":
+#     printCat()
+#     choice
 
-def printMenu():
-    return print("""
-    1. print my name
-    2. print my city
-    3. print my favorite food
-    4.quit
-    """)
+# def printMenu():
+#     return print("""
+#     1. print my name
+#     2. print my city
+#     3. print my favorite food
+#     4.quit
+#     """)
 
 print("Welcome to Joe's Portfolio!")
 choice = input("Would you like to the see menu y/n \n")
@@ -75,4 +75,4 @@ while choice != "n" and choice != "Q":
     if choice == "4":
         print("4")
     else:
-        print("No valid cho
+        print("No valid choice")
