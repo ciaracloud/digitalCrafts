@@ -56,23 +56,61 @@
 #     4.quit
 #     """)
 
-print("Welcome to Joe's Portfolio!")
-choice = input("Would you like to the see menu y/n \n")
-while choice != "n" and choice != "Q":
-    printMenu()
-    choice = input("What would you like to do? \n")
-    if choice == "1":
-       printName()
-    elif choice == "2":
-       printCity()
-    elif choice == "3":
-       printFood()
-    elif choice == "4":
-       printCity()
-       printName()
-    else:
-        print("Please choose between 1-4!")
-    if choice == "4":
-        print("4")
-    else:
-        print("No valid choice")
+# print("Welcome to Joe's Portfolio!")
+# choice = input("Would you like to the see menu y/n \n")
+# while choice != "n" and choice != "Q":
+#     printMenu()
+#     choice = input("What would you like to do? \n")
+#     if choice == "1":
+#        printName()
+#     elif choice == "2":
+#        printCity()
+#     elif choice == "3":
+#        printFood()
+#     elif choice == "4":
+#        printCity()
+#        printName()
+#     else:
+#         print("Please choose between 1-4!")
+#     if choice == "4":
+#         print("4")
+#     else:
+#         print("No valid choice")
+
+def tenPercent():
+    tip = billAmount *0.1
+    return print ("Your tip would be", tip)
+
+def fifteenPercent():
+    tip = billAmount *0.15
+    return print("Your tip would be", tip)
+
+def twentyPercent():
+    tip = billAmount *0.2
+    return print("Your tip would be", tip)
+def calculateTip():
+    if tipAmount == "A":
+        tenPercent()
+    elif tipAmount == "B":
+        fifteenPercent()
+    elif tipAmount == "C":
+        twentyPercent()
+
+billAmount = int(input ("How much is your bill?"))
+tipAmount = input("""
+    How much would you like to tip?
+    A. 10%
+    B. 15%
+    C. 20%
+    """)
+
+while tipAmount != "A" and tipAmount != "B" and tipAmount != "C":
+    print ("Choose A B or C")
+    tipAmount = input("""
+    How much would you like to tip?
+    A. 10%
+    B. 15%
+    C. 20%
+    """)
+
+calculateTip()
