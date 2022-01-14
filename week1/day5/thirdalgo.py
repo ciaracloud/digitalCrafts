@@ -9,16 +9,15 @@ choice = int(input("what number would you like to use?"))
 # print(fibsequence[choice])
 
 
-#still working on this    
+#still working on this:    
 while fibSequence[-1] > fibSequence[-2]:
     nextElement = fibSequence[-1] + fibSequence[-2]
     fibSequence.append(nextElement)
     print(fibSequence)
     
 for element in fibSequence:
-  if element = choice:
-      print
-      break
-            
-print(fibSequence[choice])
+    if element > choice or element < choice:
+        print("")
+    else:
+        print(fibSequence[choice])
 
