@@ -36,4 +36,8 @@
 #     print(number)
 
 #small #7(while loop)
-listOfNumbers = [1,2,3,4,5,6,7,8,9,10]
+# listOfNumbers = [1,2,3,4,5,6,7,8,9,10]
+# counter = 0
+# while counter < len(listOfNumbers):
+#     print(listOfNumbers[counter])
+#     counter += 1
