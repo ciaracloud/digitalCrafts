@@ -63,7 +63,7 @@
 # for eachStar in range(squareSize):
 #     print(squareSize * "*")
 
-#medium #1
+# medium #1
 # userBill = float(input("How much was your bill today? "))
 # userServiceOpinion = input("How was the level of service? \n Amazing \n Fair \n or Poor \n")
 # if userServiceOpinion == "Amazing" or userServiceOpinion == "amazing" or userServiceOpinion == "AMAZING":
@@ -79,5 +79,23 @@
 #     print("Please choose from the following options: Amazing, Fair, or Poor \n Thank you!")
 # print("Have a great day!")
 
-
-
+#medium #2
+# userBill = float(input("Hello, how much is your bill?"))
+# userServiceOpinion = input("How was the level of service? (Amazing, Fair, or Poor)")
+# userSplitAmount = int(input("How many ways would you like to split the bill?"))
+# if userServiceOpinion == "Amazing" or userServiceOpinion == "amazing" or userServiceOpinion == "AMAZING":
+#     tipTotal = userBill * 0.20
+#     print("The tip you are giving today is: $%.2f" % tipTotal)
+# elif userServiceOpinion == "Fair" or userServiceOpinion == "fair" or userServiceOpinion == "FAIR":
+#     tipTotal = userBill * 0.15
+#     print("The tip you are giving today is: $%.2f" % tipTotal)
+# elif userServiceOpinion == "Poor" or userServiceOpinion == "poor" or userServiceOpinion == "POOR":
+#     tipTotal = userBill * 0.10
+#     print("The tip you are giving today is: $%.2f" %tipTotal)
+# else:
+#     print("Please choose from the following options: Amazing, Fair, or Poor \n Thank you!")
+# userTotalAmount = float(userBill + tipTotal)
+# print("Your total amount is: $%.2f" %userTotalAmount)
+# userEachPersonTotal = userTotalAmount/userSplitAmount
+# print("Each person owes: $%.2f" % userEachPersonTotal)
+# print("Have a great day!")
