@@ -53,3 +53,7 @@
 # for eachNumber in range(-10,userNumber1):
 #     print(eachNumber)
 
+#small #9
+# myList = [1,2,3,4,5]
+# for number in myList:
+#     print(5 *"*")
