@@ -41,3 +41,15 @@
 # while counter < len(listOfNumbers):
 #     print(listOfNumbers[counter])
 #     counter += 1
+
+#small #8
+# userNumber1 = int(input("What number would you like to start with?"))
+# userNumber2 = int(input("What number would you like to end with?"))
+# for eachNumber in range(userNumber1,userNumber2 + 1):
+#     print(eachNumber)
+
+#small #8 - another test
+# userNumber1 = int(input("What number would you like to end with?"))
+# for eachNumber in range(-10,userNumber1):
+#     print(eachNumber)
+
