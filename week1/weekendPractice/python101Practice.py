@@ -18,10 +18,15 @@
 # print("The day of the week is", daysOfWeek[userDay])
 
 #small #5
-daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-userDay = int(input("Which day of the week? (0-6)"))
-print("The day of the week is", daysOfWeek[userDay])
-if userDay == 0 or userDay == 6:
-    print("Sleep in!")
-else:
-    print("Go to work!")
+# daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+# userDay = int(input("Which day of the week? (0-6)"))
+# print("The day of the week is", daysOfWeek[userDay])
+# if userDay == 0 or userDay == 6:
+#     print("Sleep in!")
+# else:
+#     print("Go to work!")
+
+#small #6
+# userTemp = int(input("What is the temperature in C?"))
+# print("The temperature in Farenheight is: ", ((userTemp * (9/5)) + 32))
+
