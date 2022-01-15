@@ -62,3 +62,17 @@
 # squareSize = int(input("What size would you like your square sides to be? "))
 # for eachStar in range(squareSize):
 #     print(squareSize * "*")
+
+#medium #1
+# userBill = int(input("How much was your bill today? "))
+# userServiceOpinion = input("How was the level of service? \n Amazing \n Fair \n or Poor \n")
+# if userServiceOpinion == "Amazing" or userServiceOpinion == "amazing" or userServiceOpinion == "AMAZING":
+#     print("The tip you are giving today is:", userBill * 0.20)
+# elif userServiceOpinion == "Fair" or userServiceOpinion == "fair" or userServiceOpinion == "FAIR":
+#     print("The tip you are giving today is:", userBill * 0.15)
+# elif userServiceOpinion == "Poor" or userServiceOpinion == "poor" or userServiceOpinion == "POOR":
+#     print("The tip you are giving today is:", userBill * 0.10)
+# else:
+#     print("Please choose from the following options: Amazing, Fair, or Poor \n Thank you!")
+# print("Have a great day!")
+
