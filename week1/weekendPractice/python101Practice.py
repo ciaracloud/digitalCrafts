@@ -111,5 +111,39 @@
 #     if userAnswer == "no":
 #         print("Bye")
         
+#medium #4
+# print("Let's make a hollow square with a star border!")
+# userWidth = int(input("What would you like the width to be? "))
+# userHeight = int(input("What would you like the height to be? "))
+# print(userWidth * "*")
+# counter = 0
+# newHeight = int(userHeight - 2)
+# newWidth = int(userWidth - 2)
+# amountOfSpaces = newWidth * " "
+# for row in range(newHeight):
+#     print(f"*", amountOfSpaces, "*")
+# print(userWidth * "*")
 
+# print("Let's make a hollow square with a star border!")
+# userWidth = int(input("What would you like the width to be? "))
+# userHeight = int(input("What would you like the height to be? "))
+# print(userWidth * "*")
+# counter = 0
+# newHeight = int(userHeight - 2)
+# newWidth = int(userWidth - 2)
+# myList = range(userWidth)
+# for row in range(newHeight):
+#     for space in myList:
+#         print("4")
+# print(userWidth * "*")
 
+print("Let's make a hollow square with a star border!")
+userWidth = int(input("What would you like the width to be? "))
+userHeight = int(input("What would you like the height to be? "))
+print(userWidth * "*")
+newHeight = int(userHeight - 2)
+newWidth = int(userWidth - 2)
+for row in range(newHeight):
+    print("*")
+
+print(userWidth * "*")
