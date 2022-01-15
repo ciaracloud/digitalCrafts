@@ -57,3 +57,8 @@
 # myList = [1,2,3,4,5]
 # for number in myList:
 #     print(5 *"*")
+
+#small #10
+# squareSize = int(input("What size would you like your square sides to be? "))
+# for eachStar in range(squareSize):
+#     print(squareSize * "*")
