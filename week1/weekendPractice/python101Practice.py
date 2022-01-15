@@ -99,3 +99,17 @@
 # userEachPersonTotal = userTotalAmount/userSplitAmount
 # print("Each person owes: $%.2f" % userEachPersonTotal)
 # print("Have a great day!")
+
+#medium #3
+# counter = 0
+# print("You currently have %d coins." % counter)
+# userAnswer = input("Do you want another coin? ")
+# while userAnswer == "yes":
+#     counter += 1
+#     print(f"You now have {counter} coins!")
+#     userAnswer = input("Do you want another coin? ")
+#     if userAnswer == "no":
+#         print("Bye")
+        
+
+
