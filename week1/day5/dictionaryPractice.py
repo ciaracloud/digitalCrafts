@@ -1,19 +1,21 @@
 myself = {
     "name": "Ciara",
-    "city": "Tampas",
+    "city": "Tampa",
     "height": "5'7",
-    "eye color": "brown",
+    "eyeColor": "brown",
     "address": {
         "streetName": "Hello St",
         "houseNumber": "123",
         "zipcode": "12345"
         },
     "siblings": {
-        "Brother(s)": "1",
-        "Sister(s)": "5"
+        "numberOfBrother(s)": "1",
+        "numberOfSister(s)": "5"
         }
     "education": {
-        "elementary": ""
+        "elementary": "LAE"
+        "middleSchool": "LAJH"
+        "highSchool": "Ridgeview HS"
     }
 }
 
@@ -23,4 +25,4 @@ myself = {
 
 # myself["state"] = "FL"
 
-print(myself["siblings"]["Sister(s)"])
+print(myself["siblings"]["numberOfSister(s)"])
