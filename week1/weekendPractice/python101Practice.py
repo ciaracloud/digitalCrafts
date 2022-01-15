@@ -64,15 +64,20 @@
 #     print(squareSize * "*")
 
 #medium #1
-# userBill = int(input("How much was your bill today? "))
+# userBill = float(input("How much was your bill today? "))
 # userServiceOpinion = input("How was the level of service? \n Amazing \n Fair \n or Poor \n")
 # if userServiceOpinion == "Amazing" or userServiceOpinion == "amazing" or userServiceOpinion == "AMAZING":
-#     print("The tip you are giving today is:", userBill * 0.20)
+#     tipTotal = userBill * 0.20
+#     print("The tip you are giving today is: $%.2f" % tipTotal)
 # elif userServiceOpinion == "Fair" or userServiceOpinion == "fair" or userServiceOpinion == "FAIR":
-#     print("The tip you are giving today is:", userBill * 0.15)
+#     tipTotal = userBill * 0.15
+#     print("The tip you are giving today is: $%.2f" % tipTotal)
 # elif userServiceOpinion == "Poor" or userServiceOpinion == "poor" or userServiceOpinion == "POOR":
-#     print("The tip you are giving today is:", userBill * 0.10)
+#     tipTotal = userBill * 0.10
+#     print("The tip you are giving today is: $%.2f" %tipTotal)
 # else:
 #     print("Please choose from the following options: Amazing, Fair, or Poor \n Thank you!")
 # print("Have a great day!")
+
+
 
