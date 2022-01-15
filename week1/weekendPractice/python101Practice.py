@@ -30,3 +30,10 @@
 # userTemp = int(input("What is the temperature in C?"))
 # print("The temperature in Farenheight is: ", ((userTemp * (9/5)) + 32))
 
+#small #7(for loop)
+# listOfNumbers = [1,2,3,4,5,6,7,8,9,10]
+# for number in listOfNumbers:
+#     print(number)
+
+#small #7(while loop)
+listOfNumbers = [1,2,3,4,5,6,7,8,9,10]
