@@ -137,13 +137,65 @@
 #         print("4")
 # print(userWidth * "*")
 
-print("Let's make a hollow square with a star border!")
-userWidth = int(input("What would you like the width to be? "))
-userHeight = int(input("What would you like the height to be? "))
-print(userWidth * "*")
-newHeight = int(userHeight - 2)
-newWidth = int(userWidth - 2)
-for row in range(newHeight):
-    print("*")
+# print("Let's make a hollow square with a star border!")
+# userWidth = int(input("What would you like the width to be? "))
+# userHeight = int(input("What would you like the height to be? "))
+# print(userWidth * "*")
+# newHeight = int(userHeight - 2)
+# newWidth = int(userWidth - 2)
+# for row in range(newHeight):
+#     myList = range(1,newWidth)
+#     for myList[0]:
+#         print("*")
+#     for myList[-1]:
+#         print("*")
+# print(userWidth * "*")
 
-print(userWidth * "*")
+# for row in range(userWidth):
+#     for column in range(userHeight):
+#         if 
+
+# userHeight = int(input("What would you like the height to be?"))
+# userWidth = int(input("What would you like the width to be?"))
+# for element in range(userWidth):
+#     print("*",end="")
+#     for element in range(userHeight):
+#         print("*")
+# print()
+
+# for indexNumber in range(5):
+#     print("*",end="")
+
+# print()
+
+
+userWidth = int(input("How wide would you like the square to be? "))
+userHeight = int(input("How tall would you like the square to be? "))
+for rowNumber in range(userHeight):
+    for elementInRow in range(userWidth):
+        if elementInRow == 0:
+            print("*",end="")
+        elif elementInRow == userWidth:
+            print("*",end="")
+        else:
+            print("4",end="")
+    print()
+
+# print("Let's create a hollow square with a star border!")
+# userHeight = int(input("How tall would you like the square to be? "))
+# userWidth = int(input("How wide would you like the square to be? "))
+# for element in range(userHeight):
+#     for element in range(userWidth):
+#         print("*",end="")
+#     print()
+
+# for element in range(4):
+#     if element == 0:
+#         print("*")
+#     elif element == 1:
+#         print("**")
+#     elif element == 2:
+#         print("***")
+#     elif element == 3:
+#         print("****")
+# print()
