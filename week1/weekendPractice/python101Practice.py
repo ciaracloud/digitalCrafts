@@ -255,14 +255,20 @@
 #             print("4",end="")
 #     print()
 
-userRow = int(input("How many rows would you like the star pyramid to be?"))
-for row in range(userRow):
-    newRange = int(userRow + (userRow -1))
-    for elementInRow in range(newRange):
-        counter = 1
-        if elementInRow < (userRow-counter) or elementInRow > (userRow):
-            print(" ",end="")
-        else:
-            print("*",end="")
-        counter += 1
-    print()
+# userRow = int(input("How many rows would you like the star pyramid to be?"))
+# # for row in range(userRow):
+# #     newRange = int(userRow + (userRow -1))
+# #     print("*",end="")
+
+#ask for help (can't get counter to work for incrementing and decrementing):
+# userRow = int(input("How many rows would you like the star pyramid to be?"))
+# for row in range(userRow):
+#     newRange = int(userRow + (userRow -1))
+#     for elementInRow in range(newRange):
+#         counter = 0
+#         if elementInRow < (userRow-counter) or elementInRow > (userRow+counter):
+#             print(" ",end="")
+#         else:
+#             print("*",end="")
+#         counter += 1
+#     print()
