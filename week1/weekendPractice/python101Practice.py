@@ -197,3 +197,72 @@
 #         else:
 #             print(" ",end="")
 #     print()
+
+#medium #5
+# counter = 1
+# while counter < 8:
+#     print(counter * "*")
+#     counter += 2
+
+#first attempt works:
+# for elementInRow in range(7):
+#     if elementInRow == 0 or elementInRow == 1 or elementInRow == 2 or elementInRow == 4 or elementInRow == 5 or elementInRow == 6:
+#         print(" ",end="")
+#     else:
+#         print("*",end="")
+# print()
+
+# for elementInRow in range(7):
+#     if elementInRow == 0 or elementInRow == 1 or elementInRow == 5 or elementInRow == 6:
+#         print(" ",end="")
+#     else:
+#         print("*",end="")
+# print()
+
+# for elementInRow in range(7):
+#     if elementInRow == 0 or elementInRow == 6:
+#         print(" ",end="")
+#     else:
+#         print("*",end="")
+# print()
+
+# for elementInRow in range(7):
+#         print("*",end="")
+# print()
+
+#trying another attempt, but with nested loops:
+
+# counter = 0
+# for row in range(userRow-1):
+#     for elementInRow in range(userRow+counter):
+
+#         if elementInRow == userRow + counter)/2:
+#             print("*",end="")
+#         else:
+#             print(" ",end=" ")
+#         counter += 1
+#     print()
+
+# userRow = int(input("How many rows would you like the star pyramid to be?"))
+# for row in range(userRow):
+#     newRange = int(userRow + (userRow -1))
+#     for elementInRow in range(newRange):
+#         if elementInRow == (userRow-1):
+#             print("*", end="")
+#         elif elementInRow <= (userRow-1):
+#             print("5",end="")
+#         elif elementInRow >= (userRow-1):
+#             print("4",end="")
+#     print()
+
+userRow = int(input("How many rows would you like the star pyramid to be?"))
+for row in range(userRow):
+    newRange = int(userRow + (userRow -1))
+    for elementInRow in range(newRange):
+        counter = 1
+        if elementInRow < (userRow-counter) or elementInRow > (userRow):
+            print(" ",end="")
+        else:
+            print("*",end="")
+        counter += 1
+    print()
