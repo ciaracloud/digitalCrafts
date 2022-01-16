@@ -188,12 +188,12 @@
 # print()
 
 #the correct answer for medium #4:
-userWidth = int(input("How wide would you like the square to be? "))
-userHeight = int(input("How tall would you like the square to be? "))
-for rowNumber in range(userHeight):
-    for elementInRow in range(userWidth):
-        if elementInRow == 0 or elementInRow == userWidth - 1 or rowNumber == 0 or rowNumber == userHeight - 1:
-            print("*",end="")
-        else:
-            print(" ",end="")
-    print()
+# userWidth = int(input("How wide would you like the square to be? "))
+# userHeight = int(input("How tall would you like the square to be? "))
+# for rowNumber in range(userHeight):
+#     for elementInRow in range(userWidth):
+#         if elementInRow == 0 or elementInRow == userWidth - 1 or rowNumber == 0 or rowNumber == userHeight - 1:
+#             print("*",end="")
+#         else:
+#             print(" ",end="")
+#     print()
