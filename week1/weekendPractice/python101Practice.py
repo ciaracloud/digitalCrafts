@@ -168,19 +168,6 @@
 
 # print()
 
-
-userWidth = int(input("How wide would you like the square to be? "))
-userHeight = int(input("How tall would you like the square to be? "))
-for rowNumber in range(userHeight):
-    for elementInRow in range(userWidth):
-        if elementInRow == 0:
-            print("*",end="")
-        elif elementInRow == userWidth:
-            print("*",end="")
-        else:
-            print("4",end="")
-    print()
-
 # print("Let's create a hollow square with a star border!")
 # userHeight = int(input("How tall would you like the square to be? "))
 # userWidth = int(input("How wide would you like the square to be? "))
@@ -199,3 +186,14 @@ for rowNumber in range(userHeight):
 #     elif element == 3:
 #         print("****")
 # print()
+
+#the correct answer for medium #4:
+userWidth = int(input("How wide would you like the square to be? "))
+userHeight = int(input("How tall would you like the square to be? "))
+for rowNumber in range(userHeight):
+    for elementInRow in range(userWidth):
+        if elementInRow == 0 or elementInRow == userWidth - 1 or rowNumber == 0 or rowNumber == userHeight - 1:
+            print("*",end="")
+        else:
+            print(" ",end="")
+    print()
