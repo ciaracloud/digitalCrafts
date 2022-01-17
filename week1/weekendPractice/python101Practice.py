@@ -323,10 +323,65 @@
 #     if userNumber % number == 0:
 #         print(number)
 
-def print_factors(numberGiven):
-    newRange = numberGiven + 1
-    for number in range(1,newRange):
-        if numberGiven % number == 0:
-            print(number)
+# def printFactors(numberGiven):
+#     newRange = numberGiven + 1
+#     for number in range(1,newRange):
+#         if numberGiven % number == 0:
+#             print(number)
 
-print_factors(120)
+# printFactors(120)
+
+#large #3
+# secretNumber = 5
+# userNumber = int(input("Guess the number here: "))
+# counter = 1
+# while counter <= 10:
+#     if userNumber < secretNumber:
+#         print(userNumber, "is too low!")
+#     elif userNumber > secretNumber:
+#         print(userNumber, "is too high!")
+#     else:
+#         print("Yay! That's it!")
+#     break
+#     counter += 1
+
+
+
+# userNumber = int(input("Guess the number here: "))
+# counter = 1
+# while counter <= 10:
+#     import random
+#     randomNumber = random.randint(1, 10)
+#     if userNumber < randomNumber:
+#         print(userNumber, "is too low!")
+#     elif userNumber > randomNumber:
+#         print(userNumber, "is too high!")
+#     else:
+#         print("Yay! That's it!")
+#     break
+#     counter += 1
+
+# print(randomNumber)
+
+#answer to large#3 (besides print the "too low" or "too high" on the last number :/)
+# secretNumber = 5
+# userNumber = int(input("Guess the number here (1-10): "))
+# counter = 1
+# counter2 = 4
+# while counter < 5:
+#     if userNumber == secretNumber:
+#         print("Yay! That's it! You guessed it in", counter, "guesses!")
+#         break
+#     elif userNumber < secretNumber and userNumber <= 10:
+#         print(userNumber, "is too low!")
+#         print("You have", counter2, "guesses left!")
+#     elif userNumber > secretNumber and userNumber <= 10:
+#         print(userNumber, "is too high!")
+#         print("You have", counter2, "guesses left")
+#     else:
+#         print("Please choose a number between 1 and 10")
+#     userNumber = int(input("Guess the number here: "))
+#     counter += 1
+#     counter2 -= 1
+# if counter == 5:
+#     print("You ran out of guesses! :/")
