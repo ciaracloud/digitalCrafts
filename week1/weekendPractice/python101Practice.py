@@ -260,7 +260,16 @@
 # #     newRange = int(userRow + (userRow -1))
 # #     print("*",end="")
 
-#ask for help (can't get counter to work for incrementing and decrementing):
+#Hi Joe! I am trying to print this pyramid based on the user input
+#example: user input 5 would print this
+  
+#     *    
+#    ***   
+#   *****  
+#  ******* 
+# *********
+  
+#ask for help - doesn't work (can't get counter to work for incrementing and decrementing?):
 # userRow = int(input("How many rows would you like the star pyramid to be?"))
 # for row in range(userRow):
 #     newRange = int(userRow + (userRow -1))
@@ -272,3 +281,4 @@
 #             print("*",end="")
 #         counter += 1
 #     print()
+
