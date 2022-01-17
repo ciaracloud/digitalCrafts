@@ -310,4 +310,23 @@
 #     triangleResult = (number * number2)/2
 #     print(triangleResult)
 
+#large #2
+# myList = [1,120]
+# for number in range(1,121):
+#     oneTwenty = myList[-1]
+#     if oneTwenty % number == 0:
+#         print(number)
 
+# userNumber = int(input("What number would you like to find the factors of?"))
+# newRange = userNumber + 1
+# for number in range(1,newRange):
+#     if userNumber % number == 0:
+#         print(number)
+
+def print_factors(numberGiven):
+    newRange = numberGiven + 1
+    for number in range(1,newRange):
+        if numberGiven % number == 0:
+            print(number)
+
+print_factors(120)
