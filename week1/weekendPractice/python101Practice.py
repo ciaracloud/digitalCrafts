@@ -282,3 +282,24 @@
 #         counter += 1
 #     print()
 
+#medium #6
+
+# for number in range(1,11):
+#     print(number)
+
+# print()
+
+# counter = 1
+# while counter <= 10:
+#     print(counter)
+#     counter += 1
+
+#answer for medium #6:
+# for number in range(1,11):
+#     counter = 1
+#     for number2 in range(1,11):
+#         answer = int(number * counter)
+#         print(number, "x", counter, "=", answer)
+#         counter += 1
+        
+#     print()
