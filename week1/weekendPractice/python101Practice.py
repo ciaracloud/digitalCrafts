@@ -303,3 +303,11 @@
 #         counter += 1
         
 #     print()
+
+#large #1
+# for number in range(1,101):
+#     number2 = number + 1
+#     triangleResult = (number * number2)/2
+#     print(triangleResult)
+
+
