@@ -1,36 +1,3 @@
-class User:
-    def __init__(self, first_name, last_name, address, address2):
-        self.firstName = first_name
-        self.lastName = last_name
-        self.address = address
-        self.address2 = address2
-
-class Address:
-    def __init__(self, street, city, state, zip_code):
-        self.street = street
-        self.city = city
-        self.state = state
-        self.zip_code = zip_code
-    def display_address(self):
-        address = [self.street, self.city, self.state, self.zip_code]
-        for element in address:
-            print(element,end=" ")
-        print()
-    
-ciarasAddress2 = Address("456 Sad St.", "St.Louis", "MO", "12345")
-ciarasAddress = Address("123 Happy St.", "Tampa", "FL", "12345")
-ciara = User("Ciara", "Cloud", ciarasAddress, ciarasAddress2)
-ciarasAddress.display_address()
-ciarasAddress2.display_address()
-
-# ciarasAddress2 = Address("456 ")
-# ciara.add_address("123 happy st.")
-# print(f"adding this address: {ciara.add_address} to the addresses list.")
-# print(vars(ciara))
-# print(ciarasAddress2.display_addresses)
-# ciarasAddress.display_addresses()
-
-#BANK ACCOUNT SOLUTION:
 class BankAccount:
     def __init__(self,balance_checking,balance_savings,account_checking,account_savings):
         self.balance_checking = balance_checking
@@ -69,9 +36,9 @@ class BankAccount:
             self.balance_savings -= transferAmount
             self.balance_checking += transferAmount
             print(f"This your new balance for checking: ${self.balance_checking}. \n This is your new balance for savings: ${self.balance_savings}.")
+
+
 bankAccount1 = BankAccount(100,1000,123456,789012)
 print(vars(bankAccount1))
-
 bankAccount1.transfer_funds()
 bankAccount1.withdraw()
-
