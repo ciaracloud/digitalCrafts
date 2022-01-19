@@ -1,14 +1,14 @@
 addresses = []
 
-class user:
+class User:
     def __init__(self, first_name, last_name):
-        self.firstName = firstName
-        self.lastName = lastName
+        self.firstName = first_name
+        self.lastName = last_name
     def add_address(self,address):
         addresses = []
         addresses.append(address)
 
-class address:
+class Address:
     def __init__(self, street, city, state, zip_code):
         self.street = street
         self.city = city
@@ -20,4 +20,4 @@ class address:
 
 ciara = user("Ciara", "Cloud")
 ciara.add_address("123 happy st.")
-print(ciara.add_address)
+print(f"adding this address: {ciara.add_address} to the addresses list.")
