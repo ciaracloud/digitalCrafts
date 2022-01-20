@@ -12,9 +12,9 @@ class ShoppingList:
     def addItemToList(self,groceryItemName):
         self.groceryItems.append(groceryItemName)
     def displayCompleteGroceryList(self): 
-        for  store in self.groceryItems:
+        for groceryItem in self.groceryItems:
             print(self.title)
-            print(f"{store.title} : price: {store.price} quantity: {store.quantity}")
+            print(f"{groceryItem.title} : price: {groceryItem.price} quantity: {groceryItem.quantity}")
 
 
 class GroceryItem:
@@ -44,10 +44,8 @@ while True:
     storeThatMatches = [store for store in listOfGroceryStores if store.title == userGroceryStoreChoice]
     print(storeThatMatches)
     for eachGroceryStore in listOfGroceryStores:
-
         if eachGroceryStore.title == userGroceryStoreChoice:
             print("true")
-           
             eachGroceryStore.addItemToList(groceryItemName)
             # eachGroceryStore.displayCompleteGroceryList()
     print(f"Here is your grocery list for {userGroceryStoreChoice}:")
