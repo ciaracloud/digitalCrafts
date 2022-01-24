@@ -9,10 +9,23 @@ character_letter = input("""                                      CHARACTER MENU
             health: 400                health: 200                 health: 500
             strength: 50               strength: 100               strength: 30
 
-Type the letter of the character you would like to be during battle here: """).upper()
-while len(character_letter) == 1:
+Type the letter of the character you would like to be during battle here (A, B, or C): """).upper()
+while len(character_letter) > 0:
     if character_letter == "A" or character_letter == "B" or character_letter == "C":
-        print(f"You have chosen to be CHARACTER {character_letter}! Let's continue!")
+        line_six = input(f"You have chosen to be CHARACTER {character_letter}! (Press enter to continue)")
+        break
+    else:
+        print("Please choose one of the characters that are available in the character menu!")
+        character_letter = input("Type the letter of the character you would like to be during battle here: ").upper()
+name_or_run_choice = input("""As you get closer to Vivian, she asks you what your name is again to make you feel small.
+Vivian: "HEY YOU! What's your name again?" 
+(Type your name and press enter to give her your name OR Press enter to point at a "squirrel" and run past her.)""")
+while len(name_or_run_choice) > -1:
+    if len(name_or_run_choice) > 0:
+        line_seven = input(f"You have chosen to be CHARACTER {character_letter}! (Press enter to continue)").capitalize()
+        break
+    elif len(name_or_run_choice) == 0:
+        line_eight = input("")
     else:
         print("Please choose one of the characters that are available in the character menu!")
         character_letter = input("Type the letter of the character you would like to be during battle here: ").upper()
