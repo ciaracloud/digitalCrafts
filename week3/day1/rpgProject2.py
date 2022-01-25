@@ -153,23 +153,30 @@ Type your name here to give her your name: """).upper()
 # elif line_ten == 0 and character_letter == "C":
 #     display_character_c_stats()
 
-vivians_attacks = ["Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points", 
-"Vivian hit you with her purse and some of her change flew out! You lost 40 health points",
-"Vivian does the one karate move that she knows on you! You lost 40 points"]
+vivians_attacks = ["Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points!", 
+"Vivian hit you with her purse! WHY IS HER PURSE SO HARD?! You lost 40 health points!",
+"Vivian does the one karate move that she knows on you! You lost 40 heath points!"]
 
 print("""
 It's time for battle! You attack first!
 """)
 if character_letter == "A":
     while vivian.health > 0 or a.health > 0:
+        if vivian.health <= 0 or a.health <= 0:
+            if vivian.health > a.health:
+                print("GAME OVER! Vivian won!")
+            elif a.health > vivian.health:
+                a.confidence += 1000
+                print(f"YAY! You won and your confidence is now at {a.confidence}! Now get to that job interview!")
+            break
         print("These are the attack options that you can use against Vivian:")
         display_attack_options_a()
         user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
         if user_attack_choice == "A":
-            a.health -= 50
-            vivian.health -= 10
+            a.health -= 40
+            vivian.health -= 30
             attack_a_continue = input(f"""
-You threw your shoe at Vivian! She caught your shoe and threw it back at you!\nYou lost 50 health points and Vivian lost 10 health points!
+You threw your shoe at Vivian! She caught your shoe and threw it back at you!\nYou lost 50 health points and Vivian lost 40 health points!
 
 YOUR CURRENT HEALTH: {a.health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
@@ -178,7 +185,7 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
         elif user_attack_choice == "B":
             vivian.health -= 50
             attack_b_continue = input(f"""
-You have decided to tickle Vivian! She HATES being tickled! She lost 50 health points!
+You tickled Vivian! She HATES being tickled! She lost 50 health points!
 
 YOUR CURRENT HEALTH: {a.health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
