@@ -31,12 +31,11 @@ Type the letter of the character you would like to be during battle here (A, B, 
         line_eight = input('It worked! Vivian got distracted looking for the "squirrel" that you pointed at and you ran past her! (Press enter to continue)')
         line_nine = input("You made it to the interview, but you didn't get the job. (Press enter to continue)")
         line_ten =input("Maybe next time you see Vivian you should try to win the battle against her to gain some confidence before your interview! (Press enter to continue)")
-        line_ten = input("...It's the next day and you have another interview set up for your dream job as an interior designer! (Press enter to continue)")
-        line_eleven = input("Oh no ..it's Vivian again!")
+        line_ten = input("...It's the next day and you are on your way to another interview you have set up for your dream job as an interior designer! (Press enter to continue)")
+        line_eleven = input("Oh no ..it's Vivian again! (Press enter to continue)")
         vivian_doesnt_know_name = input("...As you approach Vivian, she pretends she doesn't know your name to try to make you feel small. (Press enter to continue)") 
-        name_or_run_choice = input("""Vivian: "HEY YOU! What's your name again?" 
--You remember what happened last time, so you decide to give her your name.
-Type name here: """).capitalize()
+        name_or_run_choice = input("""Vivian: "HEY YOU! What's your name again?"
+Type your name here to give her your name: """).capitalize()
         while len(name_or_run_choice) > -1:
             if len(name_or_run_choice) > 0:
                 print_name = input(f"""You: "Come on Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
@@ -62,3 +61,9 @@ Type the letter of the character you would like to be during battle here (A, B, 
     break
 print("end here")
         
+class Character():
+    def __init__(self, letter, health, strength, confidence = 0):
+        self.letter = letter
+        self.health = health
+        self.strength = strength
+        self.confidence = confidence
