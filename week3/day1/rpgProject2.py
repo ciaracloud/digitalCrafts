@@ -1,5 +1,5 @@
 character_list = []
-
+import random
 class Character:
     def __init__(self, letter, health, strength, confidence = 0):
         self.letter = letter
@@ -153,8 +153,13 @@ Type your name here to give her your name: """).upper()
 # elif line_ten == 0 and character_letter == "C":
 #     display_character_c_stats()
 
-vivians_attacks = ["unleashes her pet fire ant on you! OUCH!", "swings her purse at you! Some of her change flew out!", ""]
+vivians_attacks = ["Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points", 
+"Vivian hit you with her purse and some of her change flew out! You lost 40 health points",
+"Vivian does the one karate move that she knows on you! You lost 40 points"]
 
+print("""
+It's time for battle! You attack first!
+""")
 if character_letter == "A":
     while vivian.health > 0 or a.health > 0:
         print("These are the attack options that you can use against Vivian:")
@@ -192,11 +197,13 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
             display_attack_options_a()
             user_attack_choice = input("Please choose an attack option from the attack menu").upper()
         a.health -= 40
-        print(f"""
-Vivian unleashes her pet fire ant on you! OUCH! You lost 40 health points!
-
+        vivians_random_attack = random.choice(vivians_attacks)
+        print(vivians_random_attack)
+        vivians_attack_continue = input(f"""
 YOUR CURRENT HEALTH: {a.health}
-VIVIAN'S CURRENT HEALTH: {vivian.health}""")
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
 elif character_letter == "B":
     while vivian.health > 0 or b.health > 0:
         print("These are the attack options that you can use against Vivian:")
