@@ -1,3 +1,39 @@
+class Character:
+    def __init__(self, letter, health, strength, confidence = 0):
+        self.letter = letter
+        self.health = health
+        self.strength = strength
+        self.confidence = confidence
+
+def display_character_a_stats():
+    print("""CURRENT STATS FOR CHARACTER A
+====================================================================
+HEALTH: {a.health}
+STRENGTH: {a.strength}
+CONFIDENCE: {a.confidence}
+""")
+
+def display_character_b_stats():
+    print("""CURRENT STATS FOR CHARACTER B
+====================================================================
+HEALTH: {b.health}
+STRENGTH: {b.strength}
+CONFIDENCE: {b.confidence}
+""")
+
+def display_character_c_stats():
+    print("""CURRENT STATS FOR CHARACTER C
+====================================================================
+HEALTH: {c.health}
+STRENGTH: {c.strength}
+CONFIDENCE: {c.confidence}
+""")
+
+a = Character("A", 400, 50, 0)
+b = Character("B", 200, 100, 0)
+c = Character("C", 500, 30, 0)
+vivian = Character("Vivian", 400, 50, 60)
+
 line_one = input("Today is the day! You are headed to an interview for your dream job as an interior designer! (Press enter to continue)")
 line_two = input("But wait .... You see Vivian (the girl who has been mean to you since 5th grade)! (Press enter to continue)")
 line_three = input("She is definitely going to try to stop you from making it to the interview by attempting to defeat you in a battle! (Press enter to continue)")
@@ -59,11 +95,7 @@ Type the letter of the character you would like to be during battle here (A, B, 
     else:
         name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ')
     break
-print("end here")
+# display_current_character_stats()
         
-class Character():
-    def __init__(self, letter, health, strength, confidence = 0):
-        self.letter = letter
-        self.health = health
-        self.strength = strength
-        self.confidence = confidence
+
+
