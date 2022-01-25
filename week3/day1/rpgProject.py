@@ -4,30 +4,25 @@ class Character:
         self.health = health
         self.strength = strength
         self.confidence = confidence
+    def display_current_stats(self):
+        print(f"""CURRENT STATS FOR CHARACTER {self.letter}
+====================================================================
+HEALTH: {self.health}
+STRENGTH: {self.strength}
+CONFIDENCE: {self.confidence}
+""")
 
 def display_character_a_stats():
-    print("""CURRENT STATS FOR CHARACTER A
-====================================================================
-HEALTH: {a.health}
-STRENGTH: {a.strength}
-CONFIDENCE: {a.confidence}
-""")
+    a.display_current_stats()
 
 def display_character_b_stats():
-    print("""CURRENT STATS FOR CHARACTER B
-====================================================================
-HEALTH: {b.health}
-STRENGTH: {b.strength}
-CONFIDENCE: {b.confidence}
-""")
+    b.display_current_stats()
 
 def display_character_c_stats():
-    print("""CURRENT STATS FOR CHARACTER C
-====================================================================
-HEALTH: {c.health}
-STRENGTH: {c.strength}
-CONFIDENCE: {c.confidence}
-""")
+    c.display_current_stats()
+
+def display_vivian_stats():
+    vivian.display_current_stats()
 
 a = Character("A", 400, 50, 0)
 b = Character("B", 200, 100, 0)
@@ -95,7 +90,10 @@ Type the letter of the character you would like to be during battle here (A, B, 
     else:
         name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ')
     break
-# display_current_character_stats()
-        
 
+display_character_a_stats()
+display_character_b_stats()
+display_character_c_stats()
+display_vivian_stats()        
+print("END HERE")
 
