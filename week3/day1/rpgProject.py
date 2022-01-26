@@ -133,11 +133,11 @@ vivians_attacks = ["\n>> Vivian unleashed her pet fire ant on you! OUCH! You los
 while vivian.health > 0 or matching_character_letter[0].health > 0:
     if vivian.health <= 0 or matching_character_letter[0].health <= 0:
         if vivian.health > matching_character_letter[0].health:
-            print("GAME OVER! Vivian won!")
+            print("Sadly, you lost the battle against Vivian and never made it to the job interview.")
             break
         elif matching_character_letter[0].health > vivian.health:
             matching_character_letter[0].confidence += 1000
-            print(f"YAY! You won and your confidence is now at {matching_character_letter[0].confidence}! Now get to that job interview!")
+            print(f"YAY! You won the battle against Vivian and your confidence is now at {matching_character_letter[0].confidence}!\nYou made it to the interview and got the job as an interior designer!!")
             break
     print("These are the attack options that you can use against Vivian:")
     matching_character_letter[0].display_attack_options()
@@ -189,11 +189,11 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
                 break
     if vivian.health <= 0 or matching_character_letter[0].health <= 0:
         if vivian.health > matching_character_letter[0].health:
-            print("GAME OVER! Vivian won!")
+            print("Sadly, you lost the battle against Vivian and never made it to the job interview.")
             break
         elif matching_character_letter[0].health > vivian.health:
             matching_character_letter[0].confidence += 1000
-            print(f"YAY! You won and your confidence is now at {matching_character_letter[0].confidence}! Now get to that job interview!")
+            print(f"YAY! You won the battle against Vivian and your confidence is now at {matching_character_letter[0].confidence}!\nYou made it to the interview and got the job as an interior designer!!")
             break
     matching_character_letter[0].health -= vivian.strength
     vivians_random_attack = random.choice(vivians_attacks)
