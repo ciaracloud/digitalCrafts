@@ -73,7 +73,6 @@ while len(name_or_run_choice) > -1:
                 print("PLEASE CHOOSE ONE OF THE CHARACTERS THAT ARE AVAILABLE IN THE CHARACTER MENU:")
                 display_character_menu()
                 character_letter = input("Type the letter of the character you would like to be during battle here (A,B,or C): ").upper()
-        break
     elif name_or_run_choice == "1":
         line_five = input('It worked! Vivian got distracted looking for the "squirrel" that you pointed at and you ran past her! (Press enter to continue)')
         line_six = input("You made it to the interview, but you didn't get the job. (Press enter to continue)")
@@ -98,14 +97,15 @@ while len(name_or_run_choice) > -1:
                         user_continue = input("(Press enter to continue)")
                         break
                     else:
-                        print("Please choose one of the characters that are available in the character menu!")
-                        display_character_menu()
-                        character_letter = input("Type the letter of the character you would like to be during battle here: ").upper()
+                        while len(character_letter) == 0:
+                            print("Please choose one of the characters that are available in the character menu!")
+                            display_character_menu()
+                            character_letter = input("Type the letter of the character you would like to be during battle here: ").upper()
                 break
     else:
-        name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ')
-    break
-
+        while len(name_or_run_choice) == 0:
+            name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ').upper()
+    break 
 battle_begins = input(f"""
 Random person on the street: "It's time for battle! {matching_character_letter[0].name} ATTACKS FIRST!" 
 (Press enter to continue)
