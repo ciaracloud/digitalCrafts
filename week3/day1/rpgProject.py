@@ -1,4 +1,16 @@
 import random
+
+def display_character_menu():
+    print("""                                      
+                                      CHARACTER MENU 
+============================================================================================
+            CHARACTER A                CHARACTER B                 CHARACTER C
+            health: 300                health: 100                 health: 300
+            strength: 50               strength: 100               strength: 40
+            confidence: 0              confidence: 0               confidence: 0
+
+""")
+
 class Character:
     def __init__(self, letter, health, strength, confidence, attack_a, attack_b, attack_c):
         self.letter = letter
@@ -25,56 +37,6 @@ B. {self.attack_b}
 C. {self.attack_c}
 """)
 
-def display_character_menu():
-    print("""                                      
-                                      CHARACTER MENU 
-============================================================================================
-            CHARACTER A                CHARACTER B                 CHARACTER C
-            health: 300                health: 100                 health: 300
-            strength: 50               strength: 100               strength: 40
-            confidence: 0              confidence: 0               confidence: 0
-
-""")
-
-# def display_character_a_stats():
-#     a.display_current_stats()
-
-# def display_character_b_stats():
-#     b.display_current_stats()
-
-# def display_character_c_stats():
-#     c.display_current_stats()
-
-# def display_vivian_stats():
-#     vivian.display_current_stats()
-
-# def display_attack_options_a():
-#     print("""               
-#             CHARACTER A ATTACK OPTIONS
-# ======================================================
-# A. Throw your shoe at Vivian
-# B. Tickle Vivian
-# C. Sing the song that Vivian hates as loud as you can
-# """)
-
-# def display_attack_options_b():
-#     print("""               
-#              CHARACTER B ATTACK OPTIONS
-# ======================================================
-# A. Run your fingernails down a chalkboard
-# B. Throw your shoe at Vivian
-# C. Pinch Vivian as hard as you can
-# """)
-
-# def display_attack_options_c():
-#     print("""               
-#             CHARACTER C ATTACK OPTIONS
-# ======================================================
-# A. Flick Vivian as hard as you can
-# B. Tickle Vivian
-# C. Challenge Vivian to a mini dance battle
-# """)
-
 a = Character("A", 300, 50, 0, "Throw your shoe at Vivian", "Tickle Vivian", "Sing the song that Vivian hates as loud as you can")
 b = Character("B", 100, 100, 0, "Run your fingernails down a chalkboard", "Throw your shoe at Vivian", "Pinch Vivian as hard as you can")
 c = Character("C", 300, 40, 0, "Flick Vivian as hard as you can", "Tickle Vivian", "Challenge Vivian to a mini dance battle")
@@ -87,8 +49,11 @@ line_two = input("But wait .... You see Vivian (the girl who has been mean to yo
 line_three = input("She is definitely going to try to stop you from making it to the interview by attempting to defeat you in a battle! (Press enter to continue)")
 line_four = input("If you can get past her, you can make it make it to the interview! (Press enter to continue)")
 vivian_doesnt_know_name = input("...As you approach Vivian, she pretends she doesn't know your name to try to make you feel small. (Press enter to continue)") 
-name_or_run_choice = input("""Vivian: "HEY YOU! What's your name again?" 
--Type your name to give her your name OR press 1 to point at a "squirrel" and run past her: """).upper()
+name_or_run_choice = input("""
+                  Vivian: "HEY YOU! What's your name again?" 
+                    Type your name to give her your name                 
+                                     OR                 
+press 1 to point at a "squirrel" and run past her (Press enter to continue): """).upper()
 while len(name_or_run_choice) > -1:
     if len(name_or_run_choice) > 0 and name_or_run_choice != "1":
         print_name = input(f"""You: "Come on, Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
@@ -114,8 +79,9 @@ while len(name_or_run_choice) > -1:
         line_eight = input("...It's the next day and you are on your way to another interview you have set up for your dream job as an interior designer! (Press enter to continue)")
         line_nine = input("Oh no ..it's Vivian again! (Press enter to continue)")
         vivian_doesnt_know_name = input("...As you approach Vivian, she pretends she doesn't know your name to try to make you feel small. (Press enter to continue)") 
-        name_or_run_choice = input("""Vivian: "HEY YOU! What's your name again?"
-Type your name here to give her your name: """).upper()
+        name_or_run_choice = input("""
+                     Vivian: "HEY YOU! What's your name again?"
+        Type your name here to give her your name (Press enter to continue): """).upper()
         while len(name_or_run_choice) > -1:
             if len(name_or_run_choice) > 0:
                 print_name = input(f"""You: "Come on Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
@@ -137,23 +103,16 @@ Type your name here to give her your name: """).upper()
     else:
         name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ')
     break
-     
-# line_ten = input("""Anytime you would like to see your current stats during battle, press 0, otherwise press enter to continue the battle.
-# Now let's begin! (Press enter to continue)""")
-# if line_ten == 0 and character_letter == "A":
-#     display_character_a_stats()
-# elif line_ten == 0 and chararcter_letter == "B":
-#     display_character_b_stats()
-# elif line_ten == 0 and character_letter == "C":
-#     display_character_c_stats()
+
+battle_begins = input(f"""
+Random person on the street: "It's time for battle! {name_or_run_choice} ATTACKS FIRST!" 
+(Press enter to continue)
+""")
 
 vivians_attacks = [">> Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points! <<", 
 ">> Vivian hit you with her purse! WHY IS HER PURSE SO HARD?! You lost 40 health points! <<",
 ">> Vivian does the one karate move that she knows on you! You lost 40 health points! <<"]
 
-print(f"""
-Random person on the street: "It's time for battle! {name_or_run_choice} ATTACKS FIRST!"
-""")
 if character_letter == "A":
     while vivian.health > 0 or a.health > 0:
         if vivian.health <= 0 or a.health <= 0:
