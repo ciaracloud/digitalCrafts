@@ -80,13 +80,27 @@ while len(name_or_run_choice) > -1:
         line_nine = input("Oh no ..it's Vivian again! (Press enter to continue)")
         vivian_doesnt_know_name = input("...As you approach Vivian, she pretends she doesn't know your name to try to make you feel small. (Press enter to continue)") 
         name_or_run_choice = input("""
-Vivian: "HEY YOU! What's your name again?"
-Type your name here to give her your name (Press enter to continue): """).upper()
-        break
+Vivian: "HEY YOU! What's your name again?" 
+Type your name to give her your name                 
+OR                 
+press 1 to point at a "squirrel" and run past her (Press enter to continue): """).upper()
     else:
         while len(name_or_run_choice) == 0:
             name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ').upper()
-        break 
+            if len(name_or_run_choice) > 0 and name_or_run_choice != "1":
+                break
+            elif name_or_run_choice == "1":
+                line_five = input('It worked! Vivian got distracted looking for the "squirrel" that you pointed at and you ran past her! (Press enter to continue)')
+                line_six = input("You made it to the interview, but you didn't get the job. (Press enter to continue)")
+                line_seven =input("Maybe next time you see Vivian you should try to win the battle against her to gain some confidence before your interview! (Press enter to continue)")
+                line_eight = input("...It's the next day and you are on your way to another interview you have set up for your dream job as an interior designer! (Press enter to continue)")
+                line_nine = input("Oh no ..it's Vivian again! (Press enter to continue)")
+                vivian_doesnt_know_name = input("...As you approach Vivian, she pretends she doesn't know your name to try to make you feel small. (Press enter to continue)") 
+                name_or_run_choice = input("""
+Vivian: "HEY YOU! What's your name again?" 
+Type your name to give her your name                 
+OR                 
+press 1 to point at a "squirrel" and run past her (Press enter to continue): """).upper()
 
 if len(name_or_run_choice) > 0:
     print_name = input(f"""You: "Come on Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
@@ -104,7 +118,7 @@ while len(character_letter) > -1:
             character_letter = input("PLEASE CHOOSE ONE OF THE CHARACTERS FROM THE MENU (A,B, or C): ").upper()
             break
 
-display_character_letter = input(f"You have chosen to be {matching_character_letter[0].name} during battle! (Press enter to see their stats)")
+display_character_letter = input(f"\nYou have chosen to be {matching_character_letter[0].name} during battle! (Press enter to see their stats)")
 matching_character_letter[0].display_current_stats()
 user_continue = input("(Press enter to continue)")
 
@@ -112,9 +126,9 @@ battle_begins = input(f"""
 Random person on the street: "It's time for battle! {matching_character_letter[0].name} ATTACKS FIRST!" (Press enter to continue)
 """)
 
-vivians_attacks = [">> Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points! <<", 
-">> Vivian hit you with her purse! WHY IS HER PURSE SO HARD?! You lost 40 health points! <<",
-">> Vivian does the one karate move that she knows on you! You lost 40 health points! <<"]
+vivians_attacks = ["\n>> Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points! <<\n", 
+"\n>> Vivian hit you with her purse! WHY IS HER PURSE SO HARD?! You lost 40 health points! <<\n",
+"\n>> Vivian does the one karate move that she knows on you! You lost 40 health points! <<\n"]
 
 while vivian.health > 0 or matching_character_letter[0].health > 0:
     if vivian.health <= 0 or matching_character_letter[0].health <= 0:
@@ -131,27 +145,48 @@ while vivian.health > 0 or matching_character_letter[0].health > 0:
     if user_attack_choice == "A":
         vivian.health -= matching_character_letter[0].strength
         print(matching_character_letter[0].attack_a_phrase)
-        attack_a_continue = input(f"""YOUR CURRENT HEALTH: {matching_character_letter[0].health}
+        attack_a_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
-(Press enter to continue)""")
+(Press enter to continue)\n""")
     elif user_attack_choice == "B":
         matching_character_letter[0].health -= (matching_character_letter[0].strength * 0.4)
         vivian.health -= matching_character_letter[0].strength
         print(matching_character_letter[0].attack_b_phrase)
-        attack_b_continue = input(f"""YOUR CURRENT HEALTH: {matching_character_letter[0].health}
+        attack_b_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
-(Press enter to continue)""")
+(Press enter to continue)\n""")
     elif user_attack_choice == "C":
         vivian.health -= matching_character_letter[0].strength
         print(matching_character_letter[0].attack_c_phrase)
-        attack_c_continue = input(f"""YOUR CURRENT HEALTH: {matching_character_letter[0].health}
+        attack_c_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
-(Press enter to continue)""")
+(Press enter to continue)\n""")
     else: 
         while user_attack_choice != "A" or user_attack_choice != "B" or user_attack_choice != "C":
             matching_character_letter[0].display_attack_options()
             user_attack_choice = input("!!! PLEASE CHOOSE AN ATTACK OPTION FROM THE MENU !!! (A,B,or C): ").upper()
-            break
+            if user_attack_choice == "A":
+                vivian.health -= matching_character_letter[0].strength
+                print(matching_character_letter[0].attack_a_phrase)
+                attack_a_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)\n""")
+                break
+            elif user_attack_choice == "B":
+                matching_character_letter[0].health -= (matching_character_letter[0].strength * 0.4)
+                vivian.health -= matching_character_letter[0].strength
+                print(matching_character_letter[0].attack_b_phrase)
+                attack_b_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)\n""")
+                break
+            elif user_attack_choice == "C":
+                vivian.health -= matching_character_letter[0].strength
+                print(matching_character_letter[0].attack_c_phrase)
+                attack_c_continue = input(f"""\nYOUR CURRENT HEALTH: {matching_character_letter[0].health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)\n""")
+                break
     if vivian.health <= 0 or matching_character_letter[0].health <= 0:
         if vivian.health > matching_character_letter[0].health:
             print("GAME OVER! Vivian won!")
