@@ -20,8 +20,8 @@ def display_character_menu():
                                       CHARACTER MENU 
 ============================================================================================
             CHARACTER A                CHARACTER B                 CHARACTER C
-            health: 300                health: 100                 health: 400
-            strength: 50               strength: 100               strength: 30
+            health: 300                health: 100                 health: 300
+            strength: 50               strength: 100               strength: 40
             confidence: 0              confidence: 0               confidence: 0
 
 """)
@@ -51,7 +51,7 @@ def display_attack_options_b():
     print("""               
              CHARACTER B ATTACK OPTIONS
 ======================================================
-A. Run your finger nails down a chalkboard
+A. Run your fingernails down a chalkboard
 B. Throw your shoe at Vivian
 C. Pinch Vivian as hard as you can
 """)
@@ -67,7 +67,7 @@ C. Challenge Vivian to a mini dance battle
 
 a = Character("A", 300, 50, 0)
 b = Character("B", 100, 100, 0)
-c = Character("C", 400, 30, 0)
+c = Character("C", 300, 40, 0)
 vivian = Character("VIVIAN", 300, 40, 60)
 
 line_one = input("Today is the day! You are headed to an interview for your dream job as an interior designer! (Press enter to continue)")
@@ -158,7 +158,7 @@ vivians_attacks = [">> Vivian unleashed her pet fire ant on you! OUCH! You lost 
 ">> Vivian does the one karate move that she knows on you! You lost 40 health points! <<"]
 
 print(f"""
-Random person on the street: "It's time for battle! CHARACTER {character_letter} attacks first!"
+Random person on the street: "It's time for battle! {name_or_run_choice} ATTACKS FIRST!"
 """)
 if character_letter == "A":
     while vivian.health > 0 or a.health > 0:
@@ -220,13 +220,124 @@ YOUR CURRENT HEALTH: {a.health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
-elif character_letter == "B":
+if character_letter == "B":
     while vivian.health > 0 or b.health > 0:
+        if vivian.health <= 0 or b.health <= 0:
+            if vivian.health > b.health:
+                print("GAME OVER! Vivian won!")
+                break
+            elif b.health > vivian.health:
+                b.confidence += 1000
+                print(f"YAY! You won and your confidence is now at {b.confidence}! Now get to that job interview!")
+                break
         print("These are the attack options that you can use against Vivian:")
         display_attack_options_b()
-        break
-elif character_letter == "C":
+        user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
+        if user_attack_choice == "A":
+            vivian.health -= 100
+            attack_a_continue = input(f"""
+** You ran your fingernails down a chalkboard! Vivian hates that sound!! She lost 100 points! **
+
+YOUR CURRENT HEALTH: {b.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        elif user_attack_choice == "B":
+            b.health -= 30
+            vivian.health -= 80
+            attack_b_continue = input(f"""
+** You threw your shoe at Vivian! She caught your shoe and threw it back at you!\nYou lost 30 health points and Vivian lost 80 health points! **
+
+YOUR CURRENT HEALTH: {b.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        elif user_attack_choice == "C":
+            vivian.health -= 100
+            attack_c_continue = input(f"""
+** You pinched Vivian as hard as you can! She lost 100 health points! **
+
+YOUR CURRENT HEALTH: {b.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        else: 
+            display_attack_options_a()
+            user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
+        if vivian.health <= 0 or b.health <= 0:
+            if vivian.health > b.health:
+                print("GAME OVER! Vivian won!")
+                break
+            elif b.health > vivian.health:
+                b.confidence += 1000
+                print(f"YAY! You won and your confidence is now at {b.confidence}! Now get to that job interview!")
+                break
+        b.health -= 40
+        vivians_random_attack = random.choice(vivians_attacks)
+        print(vivians_random_attack)
+        vivians_attack_continue = input(f"""
+YOUR CURRENT HEALTH: {b.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+if character_letter == "C":
     while vivian.health > 0 or c.health > 0:
+        if vivian.health <= 0 or c.health <= 0:
+            if vivian.health > c.health:
+                print("GAME OVER! Vivian won!")
+                break
+            elif c.health > vivian.health:
+                c.confidence += 1000
+                print(f"YAY! You won and your confidence is now at {b.confidence}! Now get to that job interview!")
+                break
         print("These are the attack options that you can use against Vivian:")
         display_attack_options_c()
-        break
+        user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
+        if user_attack_choice == "A":
+            vivian.health -= 40
+            attack_a_continue = input(f"""
+** You flicked Vivian as hard as you can! She lost lost 40 health points! **
+
+YOUR CURRENT HEALTH: {c.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        elif user_attack_choice == "B":
+            vivian.health -= 40
+            attack_b_continue = input(f"""
+** You tickled Vivian! She HATES being tickled! She lost 40 health points! **
+
+YOUR CURRENT HEALTH: {c.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        elif user_attack_choice == "C":
+            c.health -= 10
+            vivian.health -= 30
+            attack_c_continue = input(f"""
+** You challenged Vivian to a mini dance battle! She's got some moves, but she isn't nearly as good as you!
+You lost 10 health points! Vivian lost 30 health points! **
+
+YOUR CURRENT HEALTH: {c.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
+        else: 
+            display_attack_options_c()
+            user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
+        if vivian.health <= 0 or b.health <= 0:
+            if vivian.health > c.health:
+                print("GAME OVER! Vivian won!")
+                break
+            elif c.health > vivian.health:
+                c.confidence += 1000
+                print(f"YAY! You won and your confidence is now at {c.confidence}! Now get to that job interview!")
+                break
+        c.health -= 40
+        vivians_random_attack = random.choice(vivians_attacks)
+        print(vivians_random_attack)
+        vivians_attack_continue = input(f"""
+YOUR CURRENT HEALTH: {c.health}
+VIVIAN'S CURRENT HEALTH: {vivian.health}
+(Press enter to continue)
+""")
