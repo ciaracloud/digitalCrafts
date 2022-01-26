@@ -56,23 +56,10 @@ name_or_run_choice = input("""
                     Type your name to give her your name                 
                                      OR                 
 press 1 to point at a "squirrel" and run past her (Press enter to continue): """).upper()
+
 while len(name_or_run_choice) > -1:
     if len(name_or_run_choice) > 0 and name_or_run_choice != "1":
-        print_name = input(f"""You: "Come on, Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
-        must_decide_character = input("Now, you have to decide which character you would like to be during battle. (Press enter to see the menu of characters to choose from)")
-        display_character_menu()
-        character_letter = input("Type the letter of the character you would like to be during battle here (A, B, or C): ").upper()
-        while len(character_letter) > -1:
-            matching_character_letter = [character_class for character_class in character_list if character_class.letter == character_letter]
-            if character_letter == "A" or character_letter == "B" or character_letter == "C":
-                display_character_letter = input(f"You have chosen to be {matching_character_letter[0].name} during battle! (Press enter to see their stats)")
-                matching_character_letter[0].display_current_stats()
-                user_continue = input("(Press enter to continue)")
-                break
-            else:
-                print("PLEASE CHOOSE ONE OF THE CHARACTERS THAT ARE AVAILABLE IN THE CHARACTER MENU:")
-                display_character_menu()
-                character_letter = input("Type the letter of the character you would like to be during battle here (A,B,or C): ").upper()
+        break
     elif name_or_run_choice == "1":
         line_five = input('It worked! Vivian got distracted looking for the "squirrel" that you pointed at and you ran past her! (Press enter to continue)')
         line_six = input("You made it to the interview, but you didn't get the job. (Press enter to continue)")
@@ -83,32 +70,34 @@ while len(name_or_run_choice) > -1:
         name_or_run_choice = input("""
                      Vivian: "HEY YOU! What's your name again?"
         Type your name here to give her your name (Press enter to continue): """).upper()
-        while len(name_or_run_choice) > -1:
-            if len(name_or_run_choice) > 0:
-                print_name = input(f"""You: "Come on Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
-                must_decide_character = input("Now, you have to decide which character you would like to be during battle. (Press enter to see the menu of characters to choose from)")
-                display_character_menu()
-                character_letter = input("Type the letter of the character you would like to be during battle here (A, B, or C): ").upper()
-                while len(character_letter) > -1:
-                    matching_character_letter = [character_class for character_class in character_list if character_class.letter == character_letter]
-                    if character_letter == "A" or character_letter == "B" or character_letter == "C":
-                        display_character_letter = input(f"You have chosen to be {matching_character_letter[0].name} during battle! (Press enter to see their stats)")
-                        matching_character_letter[0].display_current_stats()
-                        user_continue = input("(Press enter to continue)")
-                        break
-                    else:
-                        while len(character_letter) == 0:
-                            print("Please choose one of the characters that are available in the character menu!")
-                            display_character_menu()
-                            character_letter = input("Type the letter of the character you would like to be during battle here: ").upper()
-                break
+        breaks
     else:
         while len(name_or_run_choice) == 0:
             name_or_run_choice = input('Please type your name OR press 1 to point at a "squirrel" and run past Vivian: ').upper()
-    break 
+        break 
+
+if len(name_or_run_choice) > 0:
+    print_name = input(f"""You: "Come on Vivian! You know that my name is {name_or_run_choice}! Now, let's get this battle over with. I have an interview to get to!" (Press enter to continue)""")
+    must_decide_character = input("Now, you have to decide which character you would like to be during battle. (Press enter to see the menu of characters to choose from)")
+    display_character_menu()
+    character_letter = input("Type the letter of the character you would like to be during battle here (A, B, or C): ").upper()
+ 
+while len(character_letter) > -1:
+    matching_character_letter = [character_class for character_class in character_list if character_class.letter == character_letter]
+    if character_letter == "A" or character_letter == "B" or character_letter == "C":
+       break
+    else:
+        while character_letter != "A" or character_letter != "B" or character_letter != "C":
+            display_character_menu()
+            character_letter = input("PLEASE CHOOSE ONE OF THE CHARACTERS FROM THE MENU (A,B, or C): ").upper()
+            break
+
+display_character_letter = input(f"You have chosen to be {matching_character_letter[0].name} during battle! (Press enter to see their stats)")
+matching_character_letter[0].display_current_stats()
+user_continue = input("(Press enter to continue)")
+
 battle_begins = input(f"""
-Random person on the street: "It's time for battle! {matching_character_letter[0].name} ATTACKS FIRST!" 
-(Press enter to continue)
+Random person on the street: "It's time for battle! {matching_character_letter[0].name} ATTACKS FIRST!" (Press enter to continue)
 """)
 
 vivians_attacks = [">> Vivian unleashed her pet fire ant on you! OUCH! You lost 40 health points! <<", 
@@ -157,8 +146,10 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
         else: 
-            matching_character_letter[0].display_attack_options()
-            user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
+            while user_attack_choice != "A" or user_attack_choice != "B" or user_attack_choice != "C":
+                matching_character_letter[0].display_attack_options()
+                user_attack_choice = input("!!! PLEASE CHOOSE AN ATTACK OPTION FROM THE MENU !!! (A,B,or C): ").upper()
+                break
         if vivian.health <= 0 or kiwi.health <= 0:
             if vivian.health > kiwi.health:
                 print("GAME OVER! Vivian won!")
@@ -216,9 +207,11 @@ YOUR CURRENT HEALTH: {mango.health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
-        else: 
-            matching_character_letter[0].display_attack_options()
-            user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
+        else:
+            while user_attack_choice != "A" or user_attack_choice != "B" or user_attack_choice != "C":
+                matching_character_letter[0].display_attack_options()
+                user_attack_choice = input("!!! PLEASE CHOOSE AN ATTACK OPTION FROM THE MENU !!! (A,B,or C): ").upper()
+                break
         if vivian.health <= 0 or mango.health <= 0:
             if vivian.health > b.health:
                 print("GAME OVER! Vivian won!")
@@ -277,9 +270,11 @@ YOUR CURRENT HEALTH: {guava.health}
 VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
-        else: 
-            matching_character_letter[0].display_attack_options()
-            user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
+        else:
+            while user_attack_choice != "A" or user_attack_choice != "B" or user_attack_choice != "C":
+                matching_character_letter[0].display_attack_options()
+                user_attack_choice = input("!!! PLEASE CHOOSE AN ATTACK OPTION FROM THE MENU !!! (A,B,or C): ").upper()
+                break
         if vivian.health <= 0 or guava.health <= 0:
             if vivian.health > guava.health:
                 print("GAME OVER! Vivian won!")
