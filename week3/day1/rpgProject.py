@@ -1,10 +1,13 @@
 import random
 class Character:
-    def __init__(self, letter, health, strength, confidence = 0):
+    def __init__(self, letter, health, strength, confidence, attack_a, attack_b, attack_c):
         self.letter = letter
         self.health = health
         self.strength = strength
         self.confidence = confidence
+        self.attack_a = attack_a
+        self.attack_b = attack_b
+        self.attack_c = attack_c
     def display_current_stats(self):
         print(f"""
               CURRENT STATS FOR CHARACTER {self.letter}
@@ -12,6 +15,14 @@ class Character:
 HEALTH: {self.health}
 STRENGTH: {self.strength}
 CONFIDENCE: {self.confidence}
+""")
+    def display_attack_options(self):
+        print(f"""
+              ATTACK OPTIONS FOR CHARACTER {self.letter}
+====================================================================
+A. {self.attack_a}
+B. {self.attack_b}
+C. {self.attack_c}
 """)
 
 def display_character_menu():
@@ -37,41 +48,39 @@ def display_character_menu():
 # def display_vivian_stats():
 #     vivian.display_current_stats()
 
-def display_attack_options_a():
-    print("""               
-            CHARACTER A ATTACK OPTIONS
-======================================================
-A. Throw your shoe at Vivian
-B. Tickle Vivian
-C. Sing the song that Vivian hates as loud as you can
-""")
+# def display_attack_options_a():
+#     print("""               
+#             CHARACTER A ATTACK OPTIONS
+# ======================================================
+# A. Throw your shoe at Vivian
+# B. Tickle Vivian
+# C. Sing the song that Vivian hates as loud as you can
+# """)
 
-def display_attack_options_b():
-    print("""               
-             CHARACTER B ATTACK OPTIONS
-======================================================
-A. Run your fingernails down a chalkboard
-B. Throw your shoe at Vivian
-C. Pinch Vivian as hard as you can
-""")
+# def display_attack_options_b():
+#     print("""               
+#              CHARACTER B ATTACK OPTIONS
+# ======================================================
+# A. Run your fingernails down a chalkboard
+# B. Throw your shoe at Vivian
+# C. Pinch Vivian as hard as you can
+# """)
 
-def display_attack_options_c():
-    print("""               
-            CHARACTER C ATTACK OPTIONS
-======================================================
-A. Flick Vivian as hard as you can
-B. Tickle Vivian
-C. Challenge Vivian to a mini dance battle
-""")
+# def display_attack_options_c():
+#     print("""               
+#             CHARACTER C ATTACK OPTIONS
+# ======================================================
+# A. Flick Vivian as hard as you can
+# B. Tickle Vivian
+# C. Challenge Vivian to a mini dance battle
+# """)
 
-a = Character("A", 300, 50, 0)
-b = Character("B", 100, 100, 0)
-c = Character("C", 300, 40, 0)
-vivian = Character("VIVIAN", 300, 40, 60)
+a = Character("A", 300, 50, 0, "Throw your shoe at Vivian", "Tickle Vivian", "Sing the song that Vivian hates as loud as you can")
+b = Character("B", 100, 100, 0, "Run your fingernails down a chalkboard", "Throw your shoe at Vivian", "Pinch Vivian as hard as you can")
+c = Character("C", 300, 40, 0, "Flick Vivian as hard as you can", "Tickle Vivian", "Challenge Vivian to a mini dance battle")
+vivian = Character("VIVIAN", 300, 40, 60, "", "", "")
 
 character_list = [a,b,c]
-
-
 
 line_one = input("Today is the day! You are headed to an interview for your dream job as an interior designer! (Press enter to continue)")
 line_two = input("But wait .... You see Vivian (the girl who has been mean to you since 5th grade)! (Press enter to continue)")
@@ -156,7 +165,7 @@ if character_letter == "A":
                 print(f"YAY! You won and your confidence is now at {a.confidence}! Now get to that job interview!")
                 break
         print("These are the attack options that you can use against Vivian:")
-        display_attack_options_a()
+        matching_character_letter[0].display_attack_options()
         user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
         if user_attack_choice == "A":
             a.health -= 40
@@ -187,7 +196,7 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
         else: 
-            display_attack_options_a()
+            matching_character_letter[0].display_attack_options()
             user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
         if vivian.health <= 0 or a.health <= 0:
             if vivian.health > a.health:
@@ -216,7 +225,7 @@ if character_letter == "B":
                 print(f"YAY! You won and your confidence is now at {b.confidence}! Now get to that job interview!")
                 break
         print("These are the attack options that you can use against Vivian:")
-        display_attack_options_b()
+        matching_character_letter[0].display_attack_options()
         user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
         if user_attack_choice == "A":
             vivian.health -= 100
@@ -247,7 +256,7 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
         else: 
-            display_attack_options_a()
+            matching_character_letter[0].display_attack_options()
             user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
         if vivian.health <= 0 or b.health <= 0:
             if vivian.health > b.health:
@@ -276,7 +285,7 @@ if character_letter == "C":
                 print(f"YAY! You won and your confidence is now at {b.confidence}! Now get to that job interview!")
                 break
         print("These are the attack options that you can use against Vivian:")
-        display_attack_options_c()
+        matching_character_letter[0].display_attack_options()
         user_attack_choice = input("How would you like to attack Vivian? Choose A, B, or C: ").upper()
         if user_attack_choice == "A":
             vivian.health -= 40
@@ -308,7 +317,7 @@ VIVIAN'S CURRENT HEALTH: {vivian.health}
 (Press enter to continue)
 """)
         else: 
-            display_attack_options_c()
+            matching_character_letter[0].display_attack_options()
             user_attack_choice = input("Please choose an attack option from the attack menu (A,B,or C):").upper()
         if vivian.health <= 0 or b.health <= 0:
             if vivian.health > c.health:
