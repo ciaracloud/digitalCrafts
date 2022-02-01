@@ -1,0 +1,14 @@
+.myFavFood {
+  height: 300px;
+  background-color: aquamarine;
+}
+
+/* WAYS TO ADJUST IMG IN <DIV>: */
+
+/* .myFavFood > img {
+  height: 300px;
+} */
+
+/* #sushiContainer > img {
+  height: 300px;
+} */
