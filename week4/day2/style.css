@@ -12,3 +12,12 @@
 /* #sushiContainer > img {
   height: 300px;
 } */
+
+.topPortion {
+  text-align: center;
+}
+
+.topPortion > p {
+  color: white;
+  background-color: violet;
+}
