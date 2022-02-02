@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* .headingContainer {
+  display: grid;
+  padding: 8px;
+} */
+
+.header {
+  background: rgb(3, 213, 217);
+  background: linear-gradient(
+    90deg,
+    rgba(3, 213, 217, 1) 0%,
+    rgba(191, 88, 172, 0.4023984593837535) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "body body"
+    "footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.body {
+  grid-area: body;
+  height: 200px;
+  width: 100%;
+  background-color: violet;
+}

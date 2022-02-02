@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "aside nav nav nav"
+    "aside article article article"
+    "footer footer footer footer";
+}
+
+.header {
+  height: 50px;
+  grid-area: header;
+  background-color: pink;
+}
+
+.nav {
+  grid-area: nav;
+  background-color: powderblue;
+}
+
+.article {
+  grid-area: article;
+  background-color: palegreen;
+}
+
+.aside {
+  grid-area: aside;
+  background-color: plum;
+}
+
+.footer {
+  height: 50px;
+  grid-area: footer;
+  background-color: palegoldenrod;
+}
