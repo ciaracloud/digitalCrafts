@@ -1,0 +1,37 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 300px;
+  width: 600px;
+  display: flex;
+}
+
+.column1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 200px;
+  background-color: violet;
+}
+
+.column2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 200px;
+  background-color: powderblue;
+}
+
+.column3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 200px;
+  background-color: yellowgreen;
+}
