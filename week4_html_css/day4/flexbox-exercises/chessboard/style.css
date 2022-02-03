@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: violet;
+}
+
+/* .column {
+  display: flex;
+} */
+
+.container {
+  display: flex;
+  width: 800px;
+  flex-wrap: wrap;
+}
+
+.square {
+  height: 40px;
+  width: 40px;
+  background-color: red;
+}
+
+.row1 > .square:nth-child(even) {
+  background-color: turquoise;
+}
+
+.row2 > .square:nth-child(odd) {
+  background-color: turquoise;
+}
+
+.row3 > .square:nth-child(even) {
+  background-color: turquoise;
+}
+
+.row4 > .square:nth-child(odd) {
+  background-color: turquoise;
+}
+
+.row5 > .square:nth-child(even) {
+  background-color: turquoise;
+}
+
+.row6 > .square:nth-child(odd) {
+  background-color: turquoise;
+}
+
+.row7 > .square:nth-child(even) {
+  background-color: turquoise;
+}
+
+.row8 > .square:nth-child(odd) {
+  background-color: turquoise;
+}
