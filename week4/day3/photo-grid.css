@@ -9,3 +9,15 @@ body {
   grid-auto-rows: 100px;
   gap: 0.5rem;
 }
+
+.card {
+  grid-row: span 2 / auto;
+}
+
+.card-tall {
+  grid-row: span 4 / auto;
+}
+
+.card-small {
+  grid-row: span 1 / auto;
+}
