@@ -1,0 +1,19 @@
+h1 {
+  color: purple;
+}
+
+.flexybox {
+  background: rgb(3, 213, 217);
+  background: linear-gradient(
+    90deg,
+    rgba(3, 213, 217, 1) 0%,
+    rgba(88, 191, 106, 0.520045518207283) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  display: flex;
+}
+
+.content {
+  height: 20px;
+  width: ;
+}
