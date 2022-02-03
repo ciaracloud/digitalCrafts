@@ -11,26 +11,62 @@ body {
   grid-template-rows: repeat(16, 3rem);
 }
 
-.box1 {
-  background-color: white;
+.box1,
+.box2,
+.box3,
+.box10,
+.box11,
+.box12,
+.box13,
+.box14,
+.box25,
+.box26,
+.box35,
+.box36,
+.box37,
+.box49,
+.box61,
+.box73,
+.box74,
+.box75,
+.box84,
+.box85,
+.box86,
+.box94,
+.box95,
+.box96,
+.box97,
+.box108,
+.box157,
+.box158,
+.box162,
+.box163,
+.box167,
+.box168,
+.box169,
+.box173,
+.box174,
+.box175,
+.box176,
+.box180,
+.box185,
+.box186,
+.box187,
+.box188 {
+  background-color: pink;
 }
 
-.box2 {
-  background-color: white;
+.box125,
+.box128 {
+  background-color: yellow;
 }
 
-.box3 {
-  background-color: white;
-}
-
-.box4 {
-  background-color: red;
-}
-
-.box5 {
-  background-color: red;
-}
-
-.box6 {
-  background-color: red;
+.box33,
+.box45,
+.box58,
+.box69,
+.box70,
+.box71,
+.box72 {
+  background-color: black;
 }
