@@ -1,25 +1,55 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: violet;
+  background-color: #ffcead;
 }
 
 .nav-bar {
   height: 100px;
   width: 100%;
   display: flex;
-  background-color: yellow;
+  background-color: #867ae9;
+  color: #fff5ab;
   align-items: center;
   justify-content: end;
+  font-family: monospace;
 }
 
-div {
-  margin-right: 61%;
+.company-name {
+  margin-right: 570px;
+  width: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff5ab;
 }
 
 .nav-bar-menu {
   display: flex;
   justify-content: space-evenly;
   width: 400px;
-  background-color: green;
+  margin-right: 22px;
+}
+
+@media only screen and (max-width: 480px) {
+  .nav-bar {
+    display: grid;
+    width: 480px;
+    margin: 0;
+    height: 154px;
+    place-items: center;
+  }
+  .nav-bar-menu {
+    display: grid;
+    width: 480px;
+    margin: 0;
+    place-items: center;
+    margin-bottom: 40px;
+  }
+
+  .company-name {
+    width: 143px;
+    margin: 0px;
+  }
 }
