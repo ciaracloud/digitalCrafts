@@ -13,6 +13,10 @@ body {
   justify-content: end;
 }
 
+div {
+  margin-right: 61%;
+}
+
 .nav-bar-menu {
   display: flex;
   justify-content: space-evenly;
