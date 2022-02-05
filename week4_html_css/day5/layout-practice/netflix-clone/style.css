@@ -6,7 +6,7 @@ body {
 
 .container {
   height: 1024px;
-  width: 100%;
+  width: 1280px;
   color: white;
   font-family: "Montserrat", sans-serif;
   font-family: "Roboto", sans-serif;
@@ -36,4 +36,17 @@ p {
 
 .logo {
   margin-left: 5px;
+}
+
+.image-bar {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.text {
+  width: 33%;
+}
+
+.caption {
+  margin-left: 50px;
 }
