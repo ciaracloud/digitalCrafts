@@ -6,7 +6,7 @@ body {
 
 .container {
   height: 1024px;
-  width: 99%;
+  width: 98.5%;
   display: grid;
   grid-template-areas:
     "box1 box1 box1 box1"
