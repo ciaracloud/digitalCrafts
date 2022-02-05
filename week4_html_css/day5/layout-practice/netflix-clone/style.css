@@ -6,7 +6,7 @@ body {
 
 .container {
   height: 1024px;
-  width: 1280px;
+  width: 100%;
   color: white;
   font-family: "Montserrat", sans-serif;
   font-family: "Roboto", sans-serif;
@@ -39,6 +39,7 @@ p {
 }
 
 .image-bar {
+  width: 100%px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -47,6 +48,6 @@ p {
   width: 33%;
 }
 
-.caption {
-  margin-left: 50px;
+.images {
+  text-align: center;
 }
