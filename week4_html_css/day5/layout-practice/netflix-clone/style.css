@@ -27,7 +27,6 @@ body {
   margin-right: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
 }
 
 p {
@@ -35,7 +34,7 @@ p {
 }
 
 .logo {
-  margin-left: 5px;
+  margin-left: 12px;
 }
 
 .image-bar {
@@ -46,8 +45,30 @@ p {
 
 .text {
   width: 33%;
+  margin-left: 12px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 .images {
   text-align: center;
+  margin: 2px;
+}
+
+.small-titles {
+  margin-left: 12px;
+}
+
+.caption {
+  margin-top: 2px;
+  font-size: 15px;
+}
+
+.paragraph-about-movies {
+  width: 550px;
+  margin-top: 10px;
+}
+
+h1 {
+  margin-bottom: 2px;
 }
