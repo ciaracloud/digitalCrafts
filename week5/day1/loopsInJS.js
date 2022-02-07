@@ -53,8 +53,14 @@ for (const house of houses) {
     console.log(house)
 }
 
-// .map (used for arrays, loops over array, creates it's own empty array)
+// .map (for loop used for arrays, loops over array, creates it's own empty array)
 
 const dcInstructors = ["Ciara", "Kiwi", "Taylor"];
 console.log(dcInstructors);
 const dcInstructorsUpper = dcInstructors.map((instructor) => instructor.toUpperCase());
+
+const complicatedExample = dcInstructors.map(function (element, index) {
+  const newElement = element + index;
+  return newElement.toUpperCase();
+});
+console.log(complicatedExample);
