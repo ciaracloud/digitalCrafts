@@ -1,8 +1,6 @@
-let number1 = 10;
-let number2 = 20;
-let sumOfNumbers = number1 + number2;
+let sumOfNumbers25 = 10 + 20;
 
-if (sumOfNumbers > 49 && sumOfNumbers < 81) {
+if (sumOfNumbers25 > 49 && sumOfNumbers25 < 81) {
   console.log(65);
 } else {
   console.log(80);
