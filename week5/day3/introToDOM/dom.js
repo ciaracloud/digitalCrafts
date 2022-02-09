@@ -12,7 +12,7 @@ button.innerText = "New Button";
 let p = document.getElementsByClassName("paragraph");
 console.log(p);
 
-//querySelector
+//querySelector or querySelectorAll
 //gets an elements by class name or id name
 //give (.) for class name and (#) for id name
 let img = document.querySelector(".image");
