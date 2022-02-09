@@ -10,4 +10,4 @@ function printBanner(string) {
   console.log(str + "-" + "-");
 }
 
-printBanner("ciara cloud");
+printBanner("Welcome to Digital Crafts");
