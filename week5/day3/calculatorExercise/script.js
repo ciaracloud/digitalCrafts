@@ -31,10 +31,10 @@ for (i = 0; i < operands.length; i++) {
   });
 }
 
-clear.addEventListener("click", (e) => {
+clear.addEventListener("click", () => {
   equation = [];
   input.value = "";
-  console.log("this is the current list", equation);
+  console.log("this is the current array", equation);
 });
 
 equals.addEventListener("click", (e) => {
