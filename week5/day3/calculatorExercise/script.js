@@ -6,32 +6,20 @@ let operands = document.querySelectorAll(".operands");
 console.log(operands);
 let clear = document.querySelector(".clear");
 console.log(clear);
+let input = document.querySelector(".calcScreen");
+console.log(input);
+let equals = document.querySelector(".equals");
+console.log(equals);
 
 let equation = [];
-
-function doTheMath() {
-  operation = equation[1];
-  if (equation.length === 4) {
-    if (operation === "+" && equation[3] === "=") {
-      console.log(equation[0] + equation[2]);
-    } else if (operation === "-" && equation[3] === "=") {
-      console.log(equation[0] - equation[2]);
-    } else if (operation === "/" && equation[3] === "=") {
-      console.log(equation[0] / equation[2]);
-    } else if (operation === "*" && equation[3] === "=") {
-      console.log(equation[0] * equation[2]);
-    }
-    equation = [];
-    console.log("this is the list now:", equation);
-  }
-}
 
 for (i = 0; i < numbers.length; i++) {
   numbers[i].addEventListener("click", (e) => {
     let numberInnerText = parseInt(e.target.innerText);
     equation.push(numberInnerText);
     console.log("this is the current list:", equation);
-    doTheMath();
+    // doTheMath();
+    input.value = numberInnerText;
   });
 }
 
@@ -39,12 +27,39 @@ for (i = 0; i < operands.length; i++) {
   operands[i].addEventListener("click", (e) => {
     let operandInnerText = e.target.innerText;
     equation.push(operandInnerText);
-    console.log("this is the current list:", equation);
-    doTheMath();
+    console.log("this is the current array:", equation);
+    // doTheMath();
+    input.value = operandInnerText;
   });
 }
 
 clear.addEventListener("click", (e) => {
   equation = [];
+  input.value = "";
   console.log("this is the current list", equation);
+});
+
+equals.addEventListener("click", (e) => {
+  operation = equation[1];
+  if (equation.length === 3) {
+    if (operation === "+") {
+      addition = equation[0] + equation[2];
+      equation.push(addition);
+      input.value = addition;
+    } else if (operation === "-") {
+      subtraction = equation[0] - equation[2];
+      equation.push(subtraction);
+      input.value = subtraction;
+    } else if (operation === "/") {
+      division = equation[0] / equation[2];
+      equation.push(division);
+      input.value = division;
+    } else if (operation === "*") {
+      multiplication = equation[0] * equation[2];
+      equation.push(multiplication);
+      input.value = multiplication;
+    }
+    equation = [];
+    console.log("this is the array now:", equation);
+  }
 });

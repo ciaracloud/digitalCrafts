@@ -1,5 +1,43 @@
 body {
   padding: 0;
-  margin: 0;
+  margin: 20px;
   background-color: aquamarine;
+}
+
+.calculatorContainer {
+  display: flex;
+  width: 350px;
+  height: 520px;
+  background-color: palevioletred;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+input {
+  width: 300px;
+  margin-top: 27px;
+  height: 75px;
+  border: none;
+  border-radius: 10px;
+}
+
+.buttons {
+  font-size: larger;
+  width: 90px;
+  height: 60px;
+  border: none;
+  margin: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  height: 380px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 0px;
 }
