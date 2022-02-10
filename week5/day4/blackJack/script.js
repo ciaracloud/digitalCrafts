@@ -21,35 +21,51 @@ const cardList = [
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 
 function dealCards() {
-  const hand2 = {
+  const hand = {
     suit: "",
     value: "",
   };
   const randomSuit = Math.floor(Math.random() * cardSuits.length);
   const randomCardList = Math.floor(Math.random() * cardList.length);
-  hand2.suit = cardSuits[randomSuit];
+  hand.suit = cardSuits[randomSuit];
   //   add your conditional
-  hand2.value = cardList[randomCardList];
-  return hand2;
+  hand.value = cardList[randomCardList];
+  // if (hand.value === "Jack") {
+  //   hand.value = 10;
+  // } else if (hand.value === "Queen") {
+  //   hand.value = 10;
+  // } else if (hand.value === "King") {
+  //   hand.value = 10;
+  // }
+  // console.log("this is the value of the card", hand.value);
+  // return hand;
 }
 
 function startGame() {
-  const dealerHandElement = document.createElement("img");
-  const playerHandElement = document.createElement("img");
+  const dealerHandImage = document.createElement("img");
+  const playerHandImage = document.createElement("img");
   const dealerHand = dealCards();
   const playerHand = dealCards();
-  dealerHandElement.className = "dealerCards";
-  dealerHandElement.src = `./images/${
+  dealerHandImage.className = "dealerCards";
+  dealerHandImage.src = `./images/${
     dealerHand.value
   }_of_${dealerHand.suit.toLowerCase()}.png`;
-  playerHandElement.className = "playerCards";
-  playerHandElement.src = `./images/${
+  playerHandImage.className = "playerCards";
+  playerHandImage.src = `./images/${
     playerHand.value
   }_of_${playerHand.suit.toLowerCase()}.png`;
-  player.append(playerHandElement);
-  dealer.append(dealerHandElement);
+  player.append(playerHandImage);
+  dealer.append(dealerHandImage);
+  console.log("this is the dealer hand:", dealerHand);
+  console.log("this is the player hand:", playerHand);
 }
 
+// counter = 0;
 deal.addEventListener("click", () => {
+  // // counter += 1;
+  // if (counter === 1) {
   startGame();
+  // } else {
+  //   console.log("player's turn");
+  // }
 });
