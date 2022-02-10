@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="inputBar">
+        <p>Enter task</p>
+        <input
+          class="input"
+          name=""
+          type="text"
+          value="Complete this assignment"
+        />
+        <button class="addButton">Add</button>
+      </div>
+      <div class="pendingTaskContainer taskContainers">
+        <p class="titles">Pending Tasks</p>
+        <div class="pendingTasks tasks">
+          <button class="checkbox"></button>
+          <p>Wash the car</p>
+          <button class="remove">Remove</button>
+        </div>
+        <div class="pendingTasks tasks">
+          <button class="checkbox"></button>
+          <p>Feed the dog</p>
+          <button class="remove">Remove</button>
+        </div>
+        <div class="pendingTasks tasks">
+          <button class="checkbox"></button>
+          <p>Grocery Shop</p>
+          <button class="remove">Remove</button>
+        </div>
+      </div>
+      <div class="completedTaskContainer taskContainers">
+        <p class="titles">Completed Tasks</p>
+        <div class="completedTasks tasks">
+          <button class="checkbox"></button>
+          <p>Clean the garage</p>
+          <button class="remove">Remove</button>
+        </div>
+        <div class="completedTasks tasks">
+          <button class="checkbox"></button>
+          <p>Mow the lawn</p>
+          <button class="remove">Remove</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

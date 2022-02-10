@@ -1,0 +1,76 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.container {
+  width: 450px;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.inputBar {
+  background-color: white;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  height: 30px;
+  color: #6a6a6a;
+}
+
+.tasks {
+  display: flex;
+  background-color: #57a2d5;
+  margin: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  width: 400px;
+  height: 30px;
+  color: white;
+}
+
+.taskContainers {
+  text-align: center;
+}
+
+.input {
+  width: 250px;
+  height: 25px;
+  border: 1.5px solid #6a6a6a;
+  color: #6a6a6a;
+}
+
+.addButton {
+  width: 80px;
+  height: 30px;
+  background-color: #57a2d5;
+  border: none;
+  color: white;
+}
+
+.checkbox {
+  width: 30px;
+  height: 30px;
+  background-color: #57a2d5;
+  border: 1.5px solid white;
+  cursor: pointer;
+}
+
+.remove {
+  background-color: #57a2d5;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.titles {
+  color: #6a6a6a;
+}
