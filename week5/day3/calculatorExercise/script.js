@@ -18,7 +18,6 @@ for (i = 0; i < numbers.length; i++) {
     let numberInnerText = parseInt(e.target.innerText);
     equation.push(numberInnerText);
     console.log("this is the current list:", equation);
-    // doTheMath();
     input.value = numberInnerText;
   });
 }
@@ -28,7 +27,6 @@ for (i = 0; i < operands.length; i++) {
     let operandInnerText = e.target.innerText;
     equation.push(operandInnerText);
     console.log("this is the current array:", equation);
-    // doTheMath();
     input.value = operandInnerText;
   });
 }
