@@ -1,20 +1,29 @@
+:root {
+  --blue: #1b335f;
+  --dark-pink: #ff6bd6;
+  --light-pink: #ffb0fe;
+  --creme: #ffecd3;
+}
+
 body {
   padding: 0;
-  margin: 20px;
-  background-color: aquamarine;
+  margin: 30px;
+  background-color: var(--blue);
 }
 
 .calculatorContainer {
   display: flex;
   width: 350px;
   height: 520px;
-  background-color: palevioletred;
+  background-color: var(--dark-pink);
   flex-wrap: wrap;
   border-radius: 10px;
   justify-content: center;
 }
 
 input {
+  background-color: var(--creme);
+  color: var(--blue);
   width: 300px;
   margin-top: 27px;
   height: 75px;
@@ -30,6 +39,8 @@ input {
   margin: 6px;
   border-radius: 10px;
   cursor: pointer;
+  color: var(--creme);
+  background-color: var(--blue);
 }
 
 .buttonContainer {
@@ -40,4 +51,10 @@ input {
   align-items: center;
   flex-wrap: wrap;
   padding-left: 0px;
+}
+
+.calcScreen {
+  text-align: right;
+  font-size: 45px;
+  padding-right: 12px;
 }
