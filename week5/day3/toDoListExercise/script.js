@@ -2,14 +2,9 @@ let input = document.querySelector(".input");
 let remove = document.querySelector(".remove");
 let add = document.querySelector(".addButton");
 let pendingTaskContainer = document.querySelector(".pendingTaskContainer");
-console.log(pendingTaskContainer);
 let checkbox = document.querySelectorAll(".checkbox");
-console.log(checkbox);
-let cb1 = document.querySelector(".cb1");
-let cb2 = document.querySelector(".cb2");
-let cb3 = document.querySelector(".cb3");
-let cb4 = document.querySelector(".cb4");
-let cb5 = document.querySelector(".cb5");
+let completedTaskContainer = document.querySelector(".completedTaskContainer");
+let tasks = document.querySelectorAll(".tasks");
 
 input.addEventListener("click", (e) => {
   input.value = "";
@@ -27,13 +22,17 @@ add.addEventListener("click", (e) => {
   console.log(pendingTaskContainer);
 });
 
-for (i = 0; i < checkbox.length; i++) {
-  checkbox[i].addEventListener("click", (e) => {
-    for (j = 0; j < checkbox.length; j++)
-      if (cb1.checked) {
-        console.log("box1 is checked");
-      } else {
-        console.log("box1 is not checked");
-      }
+for (i = 0; i < tasks.length; i++) {
+  tasks[i].addEventListener("click", (e) => {
+    if (e.target.checked) {
+      console.log("box is checked");
+      let newDiv = document.createElement("div");
+
+      newDiv.innerText = e.target.innerText;
+      completedTaskContainer.append(newDiv);
+    } else {
+      console.log("box is not checked");
+      pendingTaskContainer.append(e);
+    }
   });
 }
