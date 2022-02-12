@@ -1,7 +1,5 @@
 // Select player and dealer
 const deal = document.querySelector(".dealbutton");
-// const hit = document.querySelector(".hitButton");
-// const stand = document.querySelector(".standButton");
 const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
 
@@ -35,8 +33,8 @@ function dealCards() {
   return hand2;
 }
 
-let currentPlayerHand = [];
-let currentDealerHand = [];
+let startingPlayerHand = [];
+let startingDealerHand = [];
 
 function startGame() {
   const dealerHandElement = document.createElement("img");
@@ -75,8 +73,8 @@ function startGame() {
   } else {
     playerHand.value = parseInt(playerHand.value);
   }
-  currentDealerHand.push(dealerHand);
-  currentPlayerHand.push(playerHand);
+  startingDealerHand.push(dealerHand);
+  startingPlayerHand.push(playerHand);
   console.log("dealer hand this round: ", dealerHand);
   console.log("player hand this round: ", playerHand);
 }
@@ -84,6 +82,12 @@ function startGame() {
 deal.addEventListener("click", () => {
   startGame();
   startGame();
-  console.log("current player hand: ", currentPlayerHand);
-  console.log("current dealer hand: ", currentDealerHand);
+  let startingPlayerTotal =
+    startingPlayerHand[0].value + startingPlayerHand[1].value;
+  let startingDealerTotal =
+    startingDealerHand[0].value + startingDealerHand[1].value;
+  console.log("current player hand: ", startingPlayerHand);
+  console.log("starting player total: ", startingPlayerTotal);
+  console.log("current dealer hand: ", startingDealerHand);
+  console.log("starting dealer total: ", startingDealerTotal);
 });
