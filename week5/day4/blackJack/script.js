@@ -1,5 +1,7 @@
 // Select player and dealer
 const deal = document.querySelector(".dealbutton");
+// const hit = document.querySelector(".hitButton");
+// const stand = document.querySelector(".standButton");
 const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
 
@@ -21,51 +23,67 @@ const cardList = [
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
 
 function dealCards() {
-  const hand = {
+  const hand2 = {
     suit: "",
     value: "",
   };
   const randomSuit = Math.floor(Math.random() * cardSuits.length);
   const randomCardList = Math.floor(Math.random() * cardList.length);
-  hand.suit = cardSuits[randomSuit];
+  hand2.suit = cardSuits[randomSuit];
   //   add your conditional
-  hand.value = cardList[randomCardList];
-  // if (hand.value === "Jack") {
-  //   hand.value = 10;
-  // } else if (hand.value === "Queen") {
-  //   hand.value = 10;
-  // } else if (hand.value === "King") {
-  //   hand.value = 10;
-  // }
-  // console.log("this is the value of the card", hand.value);
-  // return hand;
+  hand2.value = cardList[randomCardList];
+  return hand2;
 }
+
+let currentPlayerHand = [];
+let currentDealerHand = [];
 
 function startGame() {
-  const dealerHandImage = document.createElement("img");
-  const playerHandImage = document.createElement("img");
+  const dealerHandElement = document.createElement("img");
+  const playerHandElement = document.createElement("img");
   const dealerHand = dealCards();
   const playerHand = dealCards();
-  dealerHandImage.className = "dealerCards";
-  dealerHandImage.src = `./images/${
+  dealerHandElement.className = "dealerCards";
+  dealerHandElement.src = `./images/${
     dealerHand.value
   }_of_${dealerHand.suit.toLowerCase()}.png`;
-  playerHandImage.className = "playerCards";
-  playerHandImage.src = `./images/${
+  playerHandElement.className = "playerCards";
+  playerHandElement.src = `./images/${
     playerHand.value
   }_of_${playerHand.suit.toLowerCase()}.png`;
-  player.append(playerHandImage);
-  dealer.append(dealerHandImage);
-  console.log("this is the dealer hand:", dealerHand);
-  console.log("this is the player hand:", playerHand);
+  player.append(playerHandElement);
+  dealer.append(dealerHandElement);
+  if (
+    dealerHand.value === "Jack" ||
+    dealerHand.value === "Queen" ||
+    dealerHand.value === "King"
+  ) {
+    dealerHand.value = 10;
+  } else if (dealerHand.value === "Ace") {
+    dealerHand.value = 1;
+  } else {
+    dealerHand.value = parseInt(dealerHand.value);
+  }
+  if (
+    playerHand.value === "Jack" ||
+    playerHand.value === "Queen" ||
+    playerHand.value === "King"
+  ) {
+    playerHand.value = 10;
+  } else if (playerHand.value === "Ace") {
+    playerHand.value = 1;
+  } else {
+    playerHand.value = parseInt(playerHand.value);
+  }
+  currentDealerHand.push(dealerHand);
+  currentPlayerHand.push(playerHand);
+  console.log("dealer hand this round: ", dealerHand);
+  console.log("player hand this round: ", playerHand);
 }
 
-// counter = 0;
 deal.addEventListener("click", () => {
-  // // counter += 1;
-  // if (counter === 1) {
   startGame();
-  // } else {
-  //   console.log("player's turn");
-  // }
+  startGame();
+  console.log("current player hand: ", currentPlayerHand);
+  console.log("current dealer hand: ", currentDealerHand);
 });
