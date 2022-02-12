@@ -10,14 +10,21 @@ let taskContents = document.querySelectorAll(".tasks").childNodes;
 
 taskList = [];
 
+// function checkedBox() {
+//   for (i = 0; i < tasks.length; i++) {
+//     tasks[i].
+// }
+
 add.addEventListener("click", (e) => {
+  let inputValue = input.value;
   let newDiv = document.createElement("div");
   newDiv.className = "tasks";
   let inputTag = document.createElement("input");
   inputTag.type = "checkbox";
   inputTag.className = "checkbox";
   let paragraphTag = document.createElement("p");
-  paragraphTag.innerText = input.value;
+  paragraphTag.innerText = inputValue;
+  paragraphTag.className = "newDivParagraph";
   let buttonTag = document.createElement("button");
   buttonTag.className = "remove";
   buttonTag.innerText = "Remove";
@@ -26,11 +33,8 @@ add.addEventListener("click", (e) => {
   newDiv.append(buttonTag);
   console.log(newDiv);
   pendingTaskContainer.append(newDiv);
-  input.value = "";
-});
 
-for (i = 0; i < tasks.length; i++) {
-  tasks[i].addEventListener("click", (e) => {
+  newDiv.addEventListener("click", (e) => {
     if (e.target.checked) {
       console.log("box is checked");
       let newDiv = document.createElement("div");
@@ -39,7 +43,9 @@ for (i = 0; i < tasks.length; i++) {
       inputTag.type = "checkbox";
       inputTag.className = "checkbox";
       let paragraphTag = document.createElement("p");
-      paragraphTag.innerText = "this is a completed task";
+      paragraphTag.className = "taskTitles";
+      paragraphTag.innerText = inputValue;
+      paragraphTag.setAttribute("id", `${inputValue}`);
       let buttonTag = document.createElement("button");
       buttonTag.className = "remove";
       buttonTag.innerText = "Remove";
@@ -65,4 +71,4 @@ for (i = 0; i < tasks.length; i++) {
       pendingTaskContainer.append(newDiv);
     }
   });
-}
+});
