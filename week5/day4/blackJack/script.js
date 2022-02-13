@@ -112,10 +112,16 @@ function restartGame(playerTotal, dealerTotal, hitButton, standButton) {
 }
 
 function printWinOrLose(playerTotal, dealerTotal, hitButton, standButton) {
-  if (playerTotal > 21 || dealerTotal === 21) {
+  if (playerTotal > 21) {
     window.alert(`YOUR SCORE HIT ${playerTotal}... YOU LOST :(`);
     restartGame(playerTotal, dealerTotal, hitButton, standButton);
-  } else if (dealerTotal > 21 || playerTotal === 21) {
+  } else if (dealerTotal === 21) {
+    window.alert(`DEALER'S SCORE IS ${dealerTotal}... YOU LOST :(`);
+    restartGame(playerTotal, dealerTotal, hitButton, standButton);
+  } else if (dealerTotal > 21) {
+    window.alert(`DEALER'S SCORE HIT ${dealerTotal}!! YOU WON :)`);
+    restartGame(playerTotal, dealerTotal, hitButton, standButton);
+  } else if (playerTotal === 21) {
     window.alert(`YOUR SCORE IS ${playerTotal}!! YOU WON!! :)`);
     restartGame(playerTotal, dealerTotal, hitButton, standButton);
   }
@@ -152,12 +158,8 @@ deal.addEventListener("click", () => {
     const playerHand = dealCards();
     addPlayerImages(playerHand);
     convertStrings(playerHand, "");
-    console.log("this is my hand this round: ", playerHand);
     currentPlayerHand.push(playerHand);
-    console.log("this the hand in the array: ", currentPlayerHand);
-    console.log("playerHand.Value: ", playerHand.value);
     currentPlayerTotal += playerHand.value;
-    console.log("this is the current player hand: ", currentPlayerTotal);
     printPlayerTotal(playerTotalElement, currentPlayerTotal);
     printWinOrLose(
       currentPlayerTotal,
@@ -167,6 +169,17 @@ deal.addEventListener("click", () => {
     );
   });
   standButton.addEventListener("click", () => {
-    console.log("hi");
+    const dealerHand = dealCards();
+    addDealerImages(dealerHand);
+    convertStrings(dealerHand, "");
+    currentDealerHand.push(dealerHand);
+    currentDealerTotal += dealerHand.value;
+    printDealerTotal(dealerTotalElement, currentDealerTotal);
+    printWinOrLose(
+      currentPlayerTotal,
+      currentDealerTotal,
+      hitButton,
+      standButton
+    );
   });
 });
