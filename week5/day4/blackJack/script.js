@@ -3,6 +3,7 @@ const deal = document.querySelector(".dealButton");
 const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
 const otherButtonsContainer = document.querySelector(".otherButtons");
+const container = document.querySelector(".container");
 
 // Arrays
 const cardList = [
@@ -21,8 +22,8 @@ const cardList = [
   "King",
 ];
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
-const currentPlayerHand = [];
-const currentDealerHand = [];
+let currentPlayerHand = [];
+let currentDealerHand = [];
 
 // Functions
 function dealCards() {
@@ -88,8 +89,26 @@ function startGame() {
   convertStrings(playerHand, dealerHand);
   currentDealerHand.push(dealerHand);
   currentPlayerHand.push(playerHand);
-  console.log("dealer hand this round: ", dealerHand);
-  console.log("player hand this round: ", playerHand);
+}
+
+function printPlayerTotal(element, playerTotal) {
+  element.innerText = `Player's current total is: ${playerTotal}`;
+}
+
+function printDealerTotal(element, dealerTotal) {
+  element.innerText = `Dealer's current total is: ${dealerTotal}`;
+}
+
+function restartGame(playerTotal, dealerTotal, hitButton, standButton) {
+  container.append(deal);
+  playerTotal = 0;
+  dealerTotal = 0;
+  hitButton.remove();
+  standButton.remove();
+  player.innerHTML = "";
+  dealer.innerHTML = "";
+  currentDealerHand = [];
+  currentPlayerHand = [];
 }
 
 // Event Listeners
@@ -102,8 +121,8 @@ deal.addEventListener("click", () => {
     currentDealerHand[0].value + currentDealerHand[1].value;
   let playerTotalElement = document.createElement("p");
   let dealerTotalElement = document.createElement("p");
-  playerTotalElement.innerText = `Player's current total is: ${currentPlayerTotal}`;
-  dealerTotalElement.innerText = `Dealer's current total is: ${currentDealerTotal}`;
+  printPlayerTotal(playerTotalElement, currentPlayerTotal);
+  printDealerTotal(dealerTotalElement, currentDealerTotal);
   player.append(playerTotalElement);
   dealer.append(dealerTotalElement);
   let hitButton = document.createElement("button");
@@ -129,5 +148,22 @@ deal.addEventListener("click", () => {
     console.log("playerHand.Value: ", playerHand.value);
     currentPlayerTotal += playerHand.value;
     console.log("this is the current player hand: ", currentPlayerTotal);
+    printPlayerTotal(playerTotalElement, currentPlayerTotal);
+    if (currentPlayerTotal > 21) {
+      window.alert(
+        `Sorry you lost! Your ending total is ${currentPlayerTotal} and dealer's ending total is ${currentDealerTotal}! :/`
+      );
+      restartGame(
+        currentPlayerTotal,
+        currentDealerTotal,
+        hitButton,
+        standButton
+      );
+      if (currentDealerTotal > 21) {
+        window.alert(
+          `Yay you won! Dealer's ending total is ${dealerCurrentTotal} and your ending total is ${currentPlayerTotal}! :)`
+        );
+      }
+    }
   });
 });
