@@ -1,7 +1,8 @@
 // Select player and dealer
-const deal = document.querySelector(".dealbutton");
+const deal = document.querySelector(".dealButton");
 const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
+const otherButtonsContainer = document.querySelector(".otherButtons");
 
 const cardList = [
   "Ace",
@@ -33,6 +34,31 @@ function dealCards() {
   return hand2;
 }
 
+function convertStrings(playerObject, dealerObject) {
+  if (
+    dealerObject.value === "Jack" ||
+    dealerObject.value === "Queen" ||
+    dealerObject.value === "King"
+  ) {
+    dealerObject.value = 10;
+  } else if (dealerObject.value === "Ace") {
+    dealerObject.value = 1;
+  } else {
+    dealerObject.value = parseInt(dealerObject.value);
+  }
+  if (
+    playerObject.value === "Jack" ||
+    playerObject.value === "Queen" ||
+    playerObject.value === "King"
+  ) {
+    playerObject.value = 10;
+  } else if (playerObject.value === "Ace") {
+    playerObject.value = 1;
+  } else {
+    playerObject.value = parseInt(playerObject.value);
+  }
+}
+
 let startingPlayerHand = [];
 let startingDealerHand = [];
 
@@ -51,28 +77,7 @@ function startGame() {
   }_of_${playerHand.suit.toLowerCase()}.png`;
   player.append(playerHandElement);
   dealer.append(dealerHandElement);
-  if (
-    dealerHand.value === "Jack" ||
-    dealerHand.value === "Queen" ||
-    dealerHand.value === "King"
-  ) {
-    dealerHand.value = 10;
-  } else if (dealerHand.value === "Ace") {
-    dealerHand.value = 1;
-  } else {
-    dealerHand.value = parseInt(dealerHand.value);
-  }
-  if (
-    playerHand.value === "Jack" ||
-    playerHand.value === "Queen" ||
-    playerHand.value === "King"
-  ) {
-    playerHand.value = 10;
-  } else if (playerHand.value === "Ace") {
-    playerHand.value = 1;
-  } else {
-    playerHand.value = parseInt(playerHand.value);
-  }
+  convertStrings(playerHand, dealerHand);
   startingDealerHand.push(dealerHand);
   startingPlayerHand.push(playerHand);
   console.log("dealer hand this round: ", dealerHand);
@@ -86,8 +91,30 @@ deal.addEventListener("click", () => {
     startingPlayerHand[0].value + startingPlayerHand[1].value;
   let startingDealerTotal =
     startingDealerHand[0].value + startingDealerHand[1].value;
+  let playerTotalElement = document.createElement("p");
+  let dealerTotalElement = document.createElement("p");
+  playerTotalElement.innerText = `Player's starting total is: ${startingPlayerTotal}`;
+  dealerTotalElement.innerText = `Dealer's starting total is: ${startingDealerTotal}`;
+  player.append(playerTotalElement);
+  dealer.append(dealerTotalElement);
+  let hitButton = document.createElement("button");
+  hitButton.innerText = "HIT";
+  hitButton.className = "hitButton";
+  let standButton = document.createElement("button");
+  standButton.innerText = "STAND";
+  standButton.className = "standButton";
+  otherButtonsContainer.append(hitButton);
+  otherButtonsContainer.append(standButton);
+  deal.remove();
   console.log("current player hand: ", startingPlayerHand);
   console.log("starting player total: ", startingPlayerTotal);
   console.log("current dealer hand: ", startingDealerHand);
   console.log("starting dealer total: ", startingDealerTotal);
+  hitButton.addEventListener("click", () => {
+    const playerHand = dealCards();
+    convertStrings(playerHand, "");
+    console.log("this is my hand this round: ", playerHand);
+    startingPlayerHand.push(playerHand);
+    console.log("this is my hand now: ", startingPlayerHand);
+  });
 });
