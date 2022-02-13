@@ -1,9 +1,10 @@
-// Select player and dealer
+// Selections
 const deal = document.querySelector(".dealButton");
 const player = document.querySelector(".player");
 const dealer = document.querySelector(".dealer");
 const otherButtonsContainer = document.querySelector(".otherButtons");
 
+// Arrays
 const cardList = [
   "Ace",
   "2",
@@ -20,7 +21,10 @@ const cardList = [
   "King",
 ];
 const cardSuits = ["Spades", "Diamonds", "Clubs", "Hearts"];
+const currentPlayerHand = [];
+const currentDealerHand = [];
 
+// Functions
 function dealCards() {
   const hand2 = {
     suit: "",
@@ -29,7 +33,6 @@ function dealCards() {
   const randomSuit = Math.floor(Math.random() * cardSuits.length);
   const randomCardList = Math.floor(Math.random() * cardList.length);
   hand2.suit = cardSuits[randomSuit];
-  //   add your conditional
   hand2.value = cardList[randomCardList];
   return hand2;
 }
@@ -59,9 +62,6 @@ function convertStrings(playerObject, dealerObject) {
   }
 }
 
-let startingPlayerHand = [];
-let startingDealerHand = [];
-
 function addPlayerImages(playerObject) {
   const playerHandElement = document.createElement("img");
   playerHandElement.className = "playerCards";
@@ -80,44 +80,30 @@ function addDealerImages(dealerObject) {
   dealer.append(dealerHandElement);
 }
 
-// function addImagesToScreen(playerObject, dealerObject) {
-//   const dealerHandElement = document.createElement("img");
-//   const playerHandElement = document.createElement("img");
-//   dealerHandElement.className = "dealerCards";
-//   dealerHandElement.src = `./images/${
-//     dealerObject.value
-//   }_of_${dealerObject.suit.toLowerCase()}.png`;
-//   playerHandElement.className = "playerCards";
-//   playerHandElement.src = `./images/${
-//     playerObject.value
-//   }_of_${playerObject.suit.toLowerCase()}.png`;
-//   player.append(playerHandElement);
-//   dealer.append(dealerHandElement);
-// }
-
 function startGame() {
   const dealerHand = dealCards();
   const playerHand = dealCards();
   addPlayerImages(playerHand);
   addDealerImages(dealerHand);
   convertStrings(playerHand, dealerHand);
-  startingDealerHand.push(dealerHand);
-  startingPlayerHand.push(playerHand);
+  currentDealerHand.push(dealerHand);
+  currentPlayerHand.push(playerHand);
   console.log("dealer hand this round: ", dealerHand);
   console.log("player hand this round: ", playerHand);
 }
 
+// Event Listeners
 deal.addEventListener("click", () => {
   startGame();
   startGame();
-  let startingPlayerTotal =
-    startingPlayerHand[0].value + startingPlayerHand[1].value;
-  let startingDealerTotal =
-    startingDealerHand[0].value + startingDealerHand[1].value;
+  let currentPlayerTotal =
+    currentPlayerHand[0].value + currentPlayerHand[1].value;
+  let currentDealerTotal =
+    currentDealerHand[0].value + currentDealerHand[1].value;
   let playerTotalElement = document.createElement("p");
   let dealerTotalElement = document.createElement("p");
-  playerTotalElement.innerText = `Player's starting total is: ${startingPlayerTotal}`;
-  dealerTotalElement.innerText = `Dealer's starting total is: ${startingDealerTotal}`;
+  playerTotalElement.innerText = `Player's current total is: ${currentPlayerTotal}`;
+  dealerTotalElement.innerText = `Dealer's current total is: ${currentDealerTotal}`;
   player.append(playerTotalElement);
   dealer.append(dealerTotalElement);
   let hitButton = document.createElement("button");
@@ -129,16 +115,19 @@ deal.addEventListener("click", () => {
   otherButtonsContainer.append(hitButton);
   otherButtonsContainer.append(standButton);
   deal.remove();
-  console.log("current player hand: ", startingPlayerHand);
-  console.log("starting player total: ", startingPlayerTotal);
-  console.log("current dealer hand: ", startingDealerHand);
-  console.log("starting dealer total: ", startingDealerTotal);
+  console.log("current player hand: ", currentPlayerHand);
+  console.log("starting player total: ", currentPlayerTotal);
+  console.log("current dealer hand: ", currentDealerHand);
+  console.log("starting dealer total: ", currentDealerTotal);
   hitButton.addEventListener("click", () => {
     const playerHand = dealCards();
     addPlayerImages(playerHand);
     convertStrings(playerHand, "");
     console.log("this is my hand this round: ", playerHand);
-    startingPlayerHand.push(playerHand);
-    console.log("this is my hand now: ", startingPlayerHand);
+    currentPlayerHand.push(playerHand);
+    console.log("this the hand in the array: ", currentPlayerHand);
+    console.log("playerHand.Value: ", playerHand.value);
+    currentPlayerTotal += playerHand.value;
+    console.log("this is the current player hand: ", currentPlayerTotal);
   });
 });
