@@ -111,6 +111,16 @@ function restartGame(playerTotal, dealerTotal, hitButton, standButton) {
   currentPlayerHand = [];
 }
 
+function printWinOrLose(playerTotal, dealerTotal, hitButton, standButton) {
+  if (playerTotal > 21 || dealerTotal === 21) {
+    window.alert(`YOUR SCORE HIT ${playerTotal}... YOU LOST :(`);
+    restartGame(playerTotal, dealerTotal, hitButton, standButton);
+  } else if (dealerTotal > 21 || playerTotal === 21) {
+    window.alert(`YOUR SCORE IS ${playerTotal}!! YOU WON!! :)`);
+    restartGame(playerTotal, dealerTotal, hitButton, standButton);
+  }
+}
+
 // Event Listeners
 deal.addEventListener("click", () => {
   startGame();
@@ -149,21 +159,14 @@ deal.addEventListener("click", () => {
     currentPlayerTotal += playerHand.value;
     console.log("this is the current player hand: ", currentPlayerTotal);
     printPlayerTotal(playerTotalElement, currentPlayerTotal);
-    if (currentPlayerTotal > 21) {
-      window.alert(
-        `Sorry you lost! Your ending total is ${currentPlayerTotal} and dealer's ending total is ${currentDealerTotal}! :/`
-      );
-      restartGame(
-        currentPlayerTotal,
-        currentDealerTotal,
-        hitButton,
-        standButton
-      );
-      if (currentDealerTotal > 21) {
-        window.alert(
-          `Yay you won! Dealer's ending total is ${dealerCurrentTotal} and your ending total is ${currentPlayerTotal}! :)`
-        );
-      }
-    }
+    printWinOrLose(
+      currentPlayerTotal,
+      currentDealerTotal,
+      hitButton,
+      standButton
+    );
+  });
+  standButton.addEventListener("click", () => {
+    console.log("hi");
   });
 });
