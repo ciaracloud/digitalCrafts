@@ -46,7 +46,7 @@ function convertStrings(playerObject, dealerObject) {
   ) {
     dealerObject.value = 10;
   } else if (dealerObject.value === "Ace") {
-    dealerObject.value = 1;
+    dealerObject.value = 11;
   } else {
     dealerObject.value = parseInt(dealerObject.value);
   }
@@ -57,7 +57,7 @@ function convertStrings(playerObject, dealerObject) {
   ) {
     playerObject.value = 10;
   } else if (playerObject.value === "Ace") {
-    playerObject.value = 1;
+    playerObject.value = 11;
   } else {
     playerObject.value = parseInt(playerObject.value);
   }
