@@ -12,8 +12,12 @@ const movie = {
   Language: "English, German, Vietnamese, Swahili",
   Country: "United States, Canada",
   Awards: "7 wins & 25 nominations",
-  Poster:
-    "https://m.media-amazon.com/images/M/MV5BMjE1MDQ4MjI1OV5BMl5BanBnXkFtZTcwNzcwODAzMw@@._V1_SX300.jpg",
+  Poster1:
+    "https://thumbnails.cbsig.net/_x/w1200/CBS_Production_Entertainment_VMS/2021/07/16/1922594371964/MG_SAlone_16_9_1920x1080_768754_1920x1080.jpg",
+  Poster2:
+    "https://play-lh.googleusercontent.com/FaBWrOOZBR3NcTCNKsUnKG3zzIIIYech-dwsCgw0XdLsN4WIM68k9pnh6YhTaVLsV9UL=w400-h600-rw",
+  Image:
+    "http://1.bp.blogspot.com/-SANt9KueKHQ/UWrtg0m6FRI/AAAAAAAAJtk/J-iQudQ_l4I/s1600/grils+wallpapers++12.jpg",
   Ratings: [
     {
       Source: "Internet Movie Database",
