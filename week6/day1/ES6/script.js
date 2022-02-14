@@ -57,7 +57,15 @@ let height = Kiwi.height;
 
 // syntactic sugar - ways to define, must use the name of the keys
 // use a for loop to get access to multiple names, ages, heights
+
+// destructuring object
 const { name, age, height } = Kiwi;
+
+// destructuting list
+const arrayOfFood = ["apple", "pineapple"];
+const [x, y] = arrayOfFood; // order matters
+console.log(x); // will print apple
+console.log(y); // will print pineapple
 
 //----------------------------{LOOPS}---------------------------------------------
 
