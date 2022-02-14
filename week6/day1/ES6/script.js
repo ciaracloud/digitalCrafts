@@ -1,6 +1,6 @@
 // ES6
 
-// DECLARING VARIABLEs
+// ---------------------- {DECLARING VARIABLES} ----------------------------
 // block scope
 // this variable is defined at a global level
 
@@ -13,4 +13,18 @@ function printHi() {
   console.log(hi);
 }
 
-// FUNCTION IN ES6
+//------------------------- {FUNCTIONS IN ES6} -----------------------------
+
+// old way to write a function (function can be redifined)
+function printHi() {
+  let hi = "hi";
+  console.log(hi);
+}
+
+printHi = 0;
+
+// new way adds const (so function can't be redefined)
+const printHi = () => {
+  let hi = "hi";
+  console.log(hi);
+};
