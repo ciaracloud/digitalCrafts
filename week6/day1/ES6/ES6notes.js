@@ -21,7 +21,6 @@ function printHi() {
   let hi = "hi";
   console.log(hi);
 }
-
 printHi = 0;
 
 // second way to write a function (called arrow function)
