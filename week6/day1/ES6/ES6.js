@@ -32,6 +32,10 @@ const printHi = () => {
   console.log(hi);
 };
 
+// if you can write function in one line, you can get rid of curly braces (and return word)
+const functionName = () => "hi";
+console.log(functionName());
+
 //-----------------------------{SETS & MAPS}--------------------------------------
 
 // declare a set - can't have duplicates in a set
