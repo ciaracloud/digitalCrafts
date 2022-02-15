@@ -74,9 +74,12 @@ watchTrailerElement.className = "watchTrailer";
 const contentContainer = document.createElement("div");
 const posterContentContainer = document.createElement("div");
 posterContentContainer.className = "posterContent";
+const allContentContainer = document.createElement("div");
+allContentContainer.className = "allContentContainer";
+allContentContainer.append(titleElement, movieInfo, posterContentContainer);
 posterContentContainer.append(posterElement, contentContainer);
 castContainer.append(castElement);
-container.append(imageElement, titleElement, movieInfo, posterContentContainer);
+container.append(imageElement, allContentContainer);
 contentContainer.append(
   summaryElement,
   plotElement,
