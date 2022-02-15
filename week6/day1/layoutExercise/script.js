@@ -3,7 +3,7 @@ const movie = {
   Year: "2004",
   Rated: "PG-13",
   Released: "30 Apr 2004",
-  Runtime: "97 min",
+  Runtime: "1h 37min",
   Genre: "Comedy",
   Director: "Mark Waters",
   Writer: "Rosalind Wiseman, Tina Fey",
@@ -44,7 +44,8 @@ const movie = {
 
 const container = document.querySelector(".container");
 
-const { Title, Year, Genre, Rated, Actors, Plot, Poster1, Image1 } = movie;
+const { Title, Year, Genre, Rated, Actors, Plot, Poster1, Image1, Runtime } =
+  movie;
 const titleElement = document.createElement("h1");
 titleElement.innerText = Title;
 const posterElement = document.createElement("img");
@@ -53,32 +54,32 @@ posterElement.className = "poster";
 const imageElement = document.createElement("img");
 imageElement.src = Image1;
 imageElement.className = "image";
+const movieInfo = document.createElement("p");
+movieInfo.innerText = `${Year} / ${Runtime} / ${Rated} / ${Genre}`;
+movieInfo.className = "movieInfo";
+const summaryElement = document.createElement("p");
+summaryElement.innerText = "SUMMARY";
+summaryElement.className = "summary";
 const plotElement = document.createElement("p");
-plotElement.innerText = Plot;
+plotElement.innerText = `${Plot}`;
 plotElement.className = "plot";
 const castContainer = document.createElement("div");
 castContainer.className = "castContainer";
 const castElement = document.createElement("p");
 castElement.innerText = `Starring ${Actors[0]}, ${Actors[1]}, ${Actors[2]}`;
-const genreElement = document.createElement("p");
-genreElement.innerText = Genre;
-genreElement.className = "genre";
-const ratedElement = document.createElement("p");
-ratedElement.innerText = Rated;
-const yearElement = document.createElement("p");
-yearElement.innerText = Year;
+const watchTrailerElement = document.createElement("a");
+watchTrailerElement.innerText = "WATCH TRAILER";
+watchTrailerElement.href = "https://www.youtube.com/watch?v=oDU84nmSDZY";
+watchTrailerElement.className = "watchTrailer";
 const contentContainer = document.createElement("div");
-const yearRatedContainer = document.createElement("div");
-yearRatedContainer.className = "yearRated";
 const posterContentContainer = document.createElement("div");
 posterContentContainer.className = "posterContent";
 posterContentContainer.append(posterElement, contentContainer);
-yearRatedContainer.append(yearElement, ratedElement);
 castContainer.append(castElement);
-container.append(imageElement, titleElement, posterContentContainer);
+container.append(imageElement, titleElement, movieInfo, posterContentContainer);
 contentContainer.append(
-  yearRatedContainer,
-  genreElement,
+  summaryElement,
   plotElement,
-  castContainer
+  castContainer,
+  watchTrailerElement
 );
