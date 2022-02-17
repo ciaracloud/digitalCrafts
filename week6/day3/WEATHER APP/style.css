@@ -1,12 +1,33 @@
-body {
-  background-color: #00b9bc;
-  color: black;
+:root {
+  --yellow: #fbde44ff;
+  --darkblue: #28334aff;
+  --orange: #f65058ff;
+  --blue: #b8dfd8;
+  --lightblue: #e8f6ef;
+}
+
+.weatherBody {
+  background-color: var(--lightblue);
+  color: var(--darkblue);
+  font-family: "Mulish", sans-serif;
+}
+
+.indexBody {
+  background-color: var(--yellow);
+  color: white;
   font-family: "Mulish", sans-serif;
 }
 
 .todayContainer {
   font-size: 20px;
-  color: white;
+  color: var(--darkblue);
+  border-radius: 40px;
+  background-color: var(--yellow);
+  padding: 10px;
+  margin: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0px;
 }
 
 .forecastContainer {
@@ -15,19 +36,68 @@ body {
 }
 
 .input {
+  background-color: var(--lightblue);
   height: 40px;
-  width: 140px;
+  width: 50%;
   font-size: 20px;
   border: none;
+  text-align: right;
+  padding-right: 12px;
+  outline: none;
 }
 
-.button {
+.searchButton {
   height: 45px;
   width: 80px;
   font-size: 20px;
   border: none;
   color: white;
-  background-color: black;
+  background-color: var(--yellow);
   cursor: pointer;
   border-radius: 10px;
+}
+
+.imgElement {
+  width: 200px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  width: 100%;
+}
+
+.forecastElement {
+  background-color: var(--darkblue);
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+  border-radius: 32px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: right;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+.cityElement {
+  margin: 10x;
+  font-size: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
+.temp {
+  font-size: 50px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.descriptionElement {
+  font-size: 25px;
+}
+
+@media only screen and (max-width: 480px) {
 }
