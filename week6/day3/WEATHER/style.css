@@ -1,0 +1,33 @@
+body {
+  background-color: #00b9bc;
+  color: black;
+  font-family: "Mulish", sans-serif;
+}
+
+.todayContainer {
+  font-size: 20px;
+  color: white;
+}
+
+.forecastContainer {
+  font-size: 20px;
+  color: black;
+}
+
+.input {
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  border: none;
+}
+
+.button {
+  height: 45px;
+  width: 80px;
+  font-size: 20px;
+  border: none;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 10px;
+}
