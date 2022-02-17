@@ -26,15 +26,24 @@ const printOtherDays = () => {
   let day = d.getDay();
   let index = day;
   console.log("this is the index: ", index);
-
-  console.log("this is day 1:", daysOfWeek[day + 1]);
-  console.log("this is day 2:", daysOfWeek[day + 2]);
-  console.log("this is day 3:", daysOfWeek[day + 3]);
-  console.log("this is day 4:", daysOfWeek[day + 4]);
-  console.log("this is day 5:", daysOfWeek[day + 5]);
-  console.log("this is day 6:", daysOfWeek[day + 6]);
-  console.log("this is day 7:", daysOfWeek[day]);
-  console.log("this is day 8:", daysOfWeek[day + 1]);
+  counter1 = 1;
+  const dayIndex = day + counter1;
+  console.log("dayIndex: ", dayIndex, "this is day 1:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 2:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 3:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 4:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 4:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 6:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 7:", daysOfWeek[dayIndex]);
+  counter1++;
+  console.log("dayIndex: ", dayIndex, "this is day 8:", daysOfWeek[dayIndex]);
+  counter1++;
 };
 
 const searchWeatherAndForecast = async () => {
@@ -99,7 +108,6 @@ const searchWeatherAndForecast = async () => {
   const forecast = await fetch(forecastUrl);
   const forecastJson = await forecast.json();
   counter = 0;
-  counter1 = 1;
   for (day of forecastJson.daily) {
     const dayElement = document.createElement("div");
     dayElement.className = `day${counter + 1} forecastElement`;
@@ -131,10 +139,7 @@ const searchWeatherAndForecast = async () => {
       dayHighLowElement
     );
     forecastContainer.append(dayElement);
-    const dayIndex = day + counter1;
-    console.log("day: ", daysOfWeek[dayIndex]);
     counter++;
-    counter1++;
   }
   const tempAndDescriptionContainer = document.createElement("div");
   tempAndDescriptionContainer.append(tempElement, descriptionElement);
