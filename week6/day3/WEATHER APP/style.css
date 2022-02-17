@@ -59,9 +59,8 @@
 
 .imgElement {
   width: 200px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  width: 100%;
+  border-radius: 40px;
+  width: 87%;
 }
 
 .forecastElement {
@@ -93,11 +92,40 @@
   font-size: 50px;
   padding: 0px;
   margin: 0px;
+  margin-top: 20px;
 }
 
 .descriptionElement {
   font-size: 25px;
+  margin: 0px;
+  margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 480px) {
+.tempAndDescriptionContainer {
+  background-color: var(--blue);
+  width: 87%;
+  margin: 20px;
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.infoContainer {
+  width: 87%;
+  margin: 20px;
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoElement {
+  background-color: var(--blue);
+  padding: 10px;
+  font-size: 17px;
+  border-radius: 12px;
+  width: 25%;
+  margin: 0px;
+  text-align: center;
 }

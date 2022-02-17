@@ -5,6 +5,37 @@ const forecastContainer = document.querySelector(".forecastContainer");
 const weatherContainer = document.querySelector(".weatherContainer");
 
 // functions
+const daysOfWeek = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+const printToday = () => {
+  const d = new Date();
+  let day = d.getDay();
+  console.log("today is: ", daysOfWeek[day]);
+};
+
+const printOtherDays = () => {
+  const d = new Date();
+  let day = d.getDay();
+  let index = day;
+  console.log("this is the index: ", index);
+
+  console.log("this is day 1:", daysOfWeek[day + 1]);
+  console.log("this is day 2:", daysOfWeek[day + 2]);
+  console.log("this is day 3:", daysOfWeek[day + 3]);
+  console.log("this is day 4:", daysOfWeek[day + 4]);
+  console.log("this is day 5:", daysOfWeek[day + 5]);
+  console.log("this is day 6:", daysOfWeek[day + 6]);
+  console.log("this is day 7:", daysOfWeek[day]);
+  console.log("this is day 8:", daysOfWeek[day + 1]);
+};
 
 const searchWeatherAndForecast = async () => {
   todayContainer.innerHTML = "";
@@ -17,10 +48,6 @@ const searchWeatherAndForecast = async () => {
   const cityElement = document.createElement("p");
   cityElement.className = "cityElement";
   cityElement.innerText = `${weatherJson.name}`;
-  const feelsLikeElement = document.createElement("p");
-  feelsLikeElement.innerText = `Feels like: ${Math.floor(
-    weatherJson.main.feels_like
-  )}° F`;
   const descriptionElement = document.createElement("p");
   descriptionElement.className = "descriptionElement";
   if ((weatherJson.weather[0].main = "Clouds")) {
@@ -38,8 +65,19 @@ const searchWeatherAndForecast = async () => {
   } else {
     descriptionElement.innerText = `${weatherJson.weather[0].main}`;
   }
+  const feelsLikeElement = document.createElement("p");
+  feelsLikeElement.innerText = `Feels like:\n${Math.floor(
+    weatherJson.main.feels_like
+  )}° F`;
+  feelsLikeElement.className = "infoElement";
   const windElement = document.createElement("p");
-  windElement.innerText = `Wind: ${Math.floor(weatherJson.wind.speed)} mi/h`;
+  windElement.innerText = `Wind:\n${Math.floor(weatherJson.wind.speed)} mi/h`;
+  windElement.className = "infoElement";
+  const humidityElement = document.createElement("p");
+  humidityElement.innerText = `Humidity:\n${Math.floor(
+    weatherJson.main.humidity
+  )}`;
+  humidityElement.className = "infoElement";
   const imgElement = document.createElement("img");
   imgElement.className = "imgElement";
   if (weatherJson.weather[0].main == "Clear") {
@@ -61,36 +99,58 @@ const searchWeatherAndForecast = async () => {
   const forecast = await fetch(forecastUrl);
   const forecastJson = await forecast.json();
   counter = 0;
+  counter1 = 1;
   for (day of forecastJson.daily) {
     const dayElement = document.createElement("div");
     dayElement.className = `day${counter + 1} forecastElement`;
     const dayHeaderElement = document.createElement("h3");
     dayHeaderElement.innerText = `-- Day ${counter + 1} --`;
     const dayDescriptionElement = document.createElement("p");
-    dayDescriptionElement.innerText = `Description: ${forecastJson.daily[counter].weather[0].main}`;
-    const highLowElement = document.createElement("p");
-    highLowElement.innerText = `${Math.floor(
+    if (forecastJson.daily[counter].weather[0].main == "Clouds") {
+      dayDescriptionElement.innerText = `Cloudy`;
+    } else if (forecastJson.daily[counter].weather[0].main == "Rain") {
+      dayDescriptionElement.innerText = `Rainy`;
+    } else if (forecastJson.daily[counter].weather[0].main == "Clear") {
+      dayDescriptionElement.innerText = `Sunny`;
+    } else if (forecastJson.daily[counter].weather[0].main == "Drizzle") {
+      dayDescriptionElement.innerText = `Light Rain`;
+    } else if (forecastJson.daily[counter].weather[0].main == "Thunderstorm") {
+      dayDescriptionElement.innerText = `Thunderstorms`;
+    } else if (forecastJson.daily[counter].weather[0].main == "Snow") {
+      dayDescriptionElement.innerText = `Snowy`;
+    } else {
+      dayDescriptionElement.innerText = `${forecastJson.daily[counter].weather[0].main}`;
+    }
+    const dayHighLowElement = document.createElement("p");
+    dayHighLowElement.innerText = `${Math.floor(
       forecastJson.daily[counter].temp.max
     )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
-    dayElement.append(dayHeaderElement, dayDescriptionElement, highLowElement);
+    dayElement.append(
+      dayHeaderElement,
+      dayDescriptionElement,
+      dayHighLowElement
+    );
     forecastContainer.append(dayElement);
+    const dayIndex = day + counter1;
+    console.log("day: ", daysOfWeek[dayIndex]);
     counter++;
+    counter1++;
   }
+  const tempAndDescriptionContainer = document.createElement("div");
+  tempAndDescriptionContainer.append(tempElement, descriptionElement);
+  tempAndDescriptionContainer.className = "tempAndDescriptionContainer";
+  const infoContainer = document.createElement("div");
+  infoContainer.append(feelsLikeElement, windElement, humidityElement);
+  infoContainer.className = "infoContainer";
   console.log("forecast object: ", forecastJson);
-  todayContainer.append(
-    tempElement,
-    descriptionElement,
-    feelsLikeElement,
-    windElement,
-    imgElement
-  );
+  todayContainer.append(tempAndDescriptionContainer, imgElement, infoContainer);
   weatherContainer.append(cityElement, todayContainer, forecastContainer);
   console.log("weather object: ", weatherJson);
 };
 
-const searchForecast = async () => {};
-
 searchButton.addEventListener("click", () => {
+  printToday();
+  printOtherDays();
   searchWeatherAndForecast();
   weatherContainer.innerHTML = "";
   input.value = "";
