@@ -5,15 +5,16 @@
 
 .textContainer {
   background-color: rgba(255, 254, 254, 0.301);
-  height: 600px;
+  height: 630px;
   width: 80%;
   display: grid;
   place-items: center;
   border-radius: 40px;
   font-size: 54px;
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   margin-top: 40px;
+  margin-bottom: 25px;
 }
 
 .weatherBody {
@@ -62,6 +63,7 @@
   color: white;
   font-family: "Quicksand", sans-serif;
   margin-left: 0px;
+  font-weight: 300;
 }
 
 ::placeholder {
@@ -111,9 +113,10 @@
 
 .cityElement {
   margin: 10x;
-  font-size: 30px;
+  font-size: 35px;
   margin-bottom: 0px;
   margin-left: 20px;
+  font-weight: 600;
 }
 
 .temp {
@@ -122,6 +125,7 @@
   margin: 0px;
   margin-top: 0px;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .descriptionElement {
