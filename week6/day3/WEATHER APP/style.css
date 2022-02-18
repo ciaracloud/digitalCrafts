@@ -1,9 +1,6 @@
 :root {
   --yellow: #ffa500;
-  --darkblue: #28334aff;
   --orange: #fe6e00;
-  --blue: #b8dfd8;
-  --lightblue: #e8f6ef;
 }
 
 .textContainer {
@@ -42,6 +39,7 @@
   border-radius: 40px;
   padding: 10px;
   margin: 30px;
+  margin-top: 0px;
   display: grid;
   place-items: center;
   padding: 0px;
@@ -49,19 +47,21 @@
 
 .forecastContainer {
   font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .input {
   background-color: transparent;
   height: 40px;
   width: 50%;
-  font-size: 20px;
+  font-size: 23px;
   border: none;
   text-align: right;
   padding-right: 12px;
   outline: none;
   color: white;
   font-family: "Quicksand", sans-serif;
+  margin-left: 0px;
 }
 
 ::placeholder {
@@ -91,11 +91,15 @@
   background-color: rgba(255, 254, 254, 0.301);
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   margin: 5px;
   border-radius: 32px;
   color: white;
   margin-left: 30px;
   margin-right: 30px;
+  width: 83%;
+  height: 70px;
+  font-size: 25px;
 }
 
 .searchContainer {
@@ -108,15 +112,16 @@
 .cityElement {
   margin: 10x;
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   margin-left: 20px;
 }
 
 .temp {
-  font-size: 50px;
+  font-size: 75px;
   padding: 0px;
   margin: 0px;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 .descriptionElement {
@@ -158,17 +163,48 @@
   justify-content: center;
 }
 
-.dayIconElement {
-  margin-top: 11px;
-}
-
 .iconElement {
   margin: 0px;
+  margin-top: 12px;
   padding: 0px;
 }
 
 .hrElement {
-  border: 0.5px solid white;
+  border: 1px solid white;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.forecastButton {
+  background-color: rgba(255, 254, 254, 0.301);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5px;
+  border-radius: 40px;
+  color: white;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  border: none;
+  width: 70%;
+  height: 60px;
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.quoteAndForecastContainer {
+  display: grid;
+  place-items: center;
+  margin-bottom: 30px;
+}
+
+.quoteElement {
+  font-size: 28px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  margin-left: 30px;
+  text-align: center;
+  margin-top: 0px;
+  padding: 0px;
 }

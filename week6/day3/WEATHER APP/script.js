@@ -28,13 +28,13 @@ const searchWeatherAndForecast = async () => {
   const weather = await fetch(weatherUrl);
   const weatherJson = await weather.json();
   const tempElement = document.createElement("p");
-  tempElement.innerText = `${Math.floor(weatherJson.main.temp)}° F`;
+  tempElement.innerText = `${Math.floor(weatherJson.main.temp)}°F`;
   tempElement.className = "temp";
   const cityElement = document.createElement("p");
   cityElement.className = "cityElement";
   cityElement.innerText = `${weatherJson.name}`;
   const iconElement = document.createElement("img");
-  iconElement.width = 170;
+  iconElement.width = 100;
   iconElement.className = "iconElement";
   const hrElement = document.createElement("hr");
   hrElement.className = "hrElement";
@@ -77,78 +77,108 @@ const searchWeatherAndForecast = async () => {
   humidityElement.className = "infoElement";
   const imgElement = document.createElement("img");
   imgElement.className = "imgElement";
+  const forecastButton = document.createElement("button");
+  forecastButton.className = "forecastButton";
+  forecastButton.innerText = "Upcoming Weather";
+  forecastContainer.append(forecastButton);
+  const quoteElement = document.createElement("p");
+  const quoteAndForecastContainer = document.createElement("div");
+  quoteElement.className = "quoteElement";
+  quoteAndForecastContainer.className = "quoteAndForecastContainer";
+  quoteAndForecastContainer.append(quoteElement, forecastButton);
   if (weatherJson.weather[0].main == "Clear") {
     imgElement.src = "images/clear.jpg";
+    quoteElement.innerText = `Sunny side up in ${weatherJson.name}!`;
   } else if (weatherJson.weather[0].main == "Clouds") {
     imgElement.src = "images/cloudy.jpg";
+    quoteElement.innerText = `Fried egg in ${weatherJson.name}!`;
   } else if (weatherJson.weather[0].main == "Rain") {
     imgElement.src = "images/rainy.jpg";
+    quoteElement.innerText = `Runny yolk in ${weatherJson.name}!`;
   } else if (weatherJson.weather[0].main == "Drizzle") {
     imgElement.src = "images/drizzle.jpg";
+    quoteElement.innerText = `Runny yolk in ${weatherJson.name}!`;
   } else if (weatherJson.weather[0].main == "Thunderstorm") {
     imgElement.src = "images/thunderstorm.jpg";
+    quoteElement.innerText = `Broken egg in ${weatherJson.name}!`;
   } else if (weatherJson.weather[0].main == "Snow") {
     imgElement.src = "images/snow.jpg";
+    quoteElement.innerText = `Egg whites in ${weatherJson.name}!`;
   } else {
     imgElement.src = "images/other.jpg";
+    quoteElement.innerText = `Scrambled eggs in ${weatherJson.name}!`;
   }
+
   const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherJson.coord.lat}&lon=${weatherJson.coord.lon}&appid=bef0a4f4c45aebade1866b368f3734f3&units=imperial`;
   const forecast = await fetch(forecastUrl);
   const forecastJson = await forecast.json();
   counter = 0;
-  for (day of forecastJson.daily) {
-    const dayElement = document.createElement("div");
-    dayElement.className = `day${counter + 1} forecastElement`;
-    const dayIconElement = document.createElement("img");
-    dayIconElement.width = 42;
-    dayIconElement.height = 42;
-    dayIconElement.className = "dayIconElement";
-    const dayDescriptionElement = document.createElement("p");
-    if (forecastJson.daily[counter].weather[0].main == "Clouds") {
-      dayDescriptionElement.innerText = `Cloudy`;
-      dayIconElement.src = "images/clouds-256.png";
-    } else if (forecastJson.daily[counter].weather[0].main == "Rain") {
-      dayDescriptionElement.innerText = `Rainy`;
-      dayIconElement.src = "images/rain-256.png";
-    } else if (forecastJson.daily[counter].weather[0].main == "Clear") {
-      dayDescriptionElement.innerText = `Sunny`;
-      dayIconElement.src = "images/sun-256.png";
-    } else if (forecastJson.daily[counter].weather[0].main == "Drizzle") {
-      dayDescriptionElement.innerText = `Light Rain`;
-      dayIconElement.src = "images/little-rain-256.png";
-    } else if (forecastJson.daily[counter].weather[0].main == "Thunderstorm") {
-      dayDescriptionElement.innerText = `Thunderstorms`;
-      dayIconElement.src = "images/storm-256.png";
-    } else if (forecastJson.daily[counter].weather[0].main == "Snow") {
-      dayDescriptionElement.innerText = `Snowy`;
-      dayIconElement.src = "images/snow-256.png";
-    } else {
-      dayDescriptionElement.innerText = `${forecastJson.daily[counter].weather[0].main}`;
-      dayIconElement.src = "images/snow-strom-256.png";
+  forecastButton.addEventListener("click", () => {
+    forecastButton.remove();
+    for (day of forecastJson.daily) {
+      const dayElement = document.createElement("div");
+      dayElement.className = `day${counter + 1} forecastElement`;
+      const dayIconElement = document.createElement("img");
+      dayIconElement.width = 42;
+      dayIconElement.height = 42;
+      dayIconElement.className = "dayIconElement";
+      const dayDescriptionElement = document.createElement("p");
+      if (forecastJson.daily[counter].weather[0].main == "Clouds") {
+        dayDescriptionElement.innerText = `Cloudy`;
+        dayIconElement.src = "images/clouds-256.png";
+      } else if (forecastJson.daily[counter].weather[0].main == "Rain") {
+        dayDescriptionElement.innerText = `Rainy`;
+        dayIconElement.src = "images/rain-256.png";
+      } else if (forecastJson.daily[counter].weather[0].main == "Clear") {
+        dayDescriptionElement.innerText = `Sunny`;
+        dayIconElement.src = "images/sun-256.png";
+      } else if (forecastJson.daily[counter].weather[0].main == "Drizzle") {
+        dayDescriptionElement.innerText = `Light Rain`;
+        dayIconElement.src = "images/little-rain-256.png";
+      } else if (
+        forecastJson.daily[counter].weather[0].main == "Thunderstorm"
+      ) {
+        dayDescriptionElement.innerText = `Thunderstorms`;
+        dayIconElement.src = "images/storm-256.png";
+      } else if (forecastJson.daily[counter].weather[0].main == "Snow") {
+        dayDescriptionElement.innerText = `Snowy`;
+        dayIconElement.src = "images/snow-256.png";
+      } else {
+        dayDescriptionElement.innerText = `${forecastJson.daily[counter].weather[0].main}`;
+        dayIconElement.src = "images/snow-strom-256.png";
+      }
+      const dayHighLowElement = document.createElement("p");
+      dayHighLowElement.innerText = `${Math.floor(
+        forecastJson.daily[counter].temp.max
+      )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
+      dayElement.append(
+        dayIconElement,
+        dayDescriptionElement,
+        dayHighLowElement
+      );
+      quoteAndForecastContainer.append(dayElement);
+      counter++;
     }
-    const dayHighLowElement = document.createElement("p");
-    dayHighLowElement.innerText = `${Math.floor(
-      forecastJson.daily[counter].temp.max
-    )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
-    dayElement.append(dayIconElement, dayDescriptionElement, dayHighLowElement);
-    forecastContainer.append(dayElement);
-    counter++;
-  }
+  });
   const infoContainer = document.createElement("div");
   infoContainer.append(feelsLikeElement, windElement, humidityElement);
   infoContainer.className = "infoContainer";
   const tempAndDescriptionContainer = document.createElement("div");
   tempAndDescriptionContainer.className = "tempAndDescriptionContainer";
   tempAndDescriptionContainer.append(
-    tempElement,
     iconElement,
+    tempElement,
     descriptionElement,
     hrElement,
     infoContainer
   );
   console.log("forecast object: ", forecastJson);
   todayContainer.append(tempAndDescriptionContainer, imgElement);
-  weatherContainer.append(cityElement, todayContainer, forecastContainer);
+  weatherContainer.append(
+    cityElement,
+    todayContainer,
+    quoteAndForecastContainer
+  );
   console.log("weather object: ", weatherJson);
 };
 
