@@ -3,6 +3,7 @@ const searchButton = document.querySelector(".searchButton");
 const todayContainer = document.querySelector(".todayContainer");
 const forecastContainer = document.querySelector(".forecastContainer");
 const weatherContainer = document.querySelector(".weatherContainer");
+const homeContainer = document.querySelector(".homeContainer");
 
 // functions
 const daysOfWeek = [
@@ -32,22 +33,31 @@ const searchWeatherAndForecast = async () => {
   const cityElement = document.createElement("p");
   cityElement.className = "cityElement";
   cityElement.innerText = `${weatherJson.name}`;
+  const iconElement = document.createElement("img");
+  iconElement.width = 100;
   const descriptionElement = document.createElement("p");
   descriptionElement.className = "descriptionElement";
   if ((weatherJson.weather[0].main = "Clouds")) {
     descriptionElement.innerText = `Cloudy`;
+    iconElement.src = "images/clouds-256.png";
   } else if ((weatherJson.weather[0].main = "Rain")) {
     descriptionElement.innerText = `Rainy`;
+    iconElement.src = "images/rain-256.png";
   } else if ((weatherJson.weather[0].main = "Clear")) {
     descriptionElement.innerText = `Sunny`;
+    iconElement.src = "images/sun-256.png";
   } else if ((weatherJson.weather[0].main = "Drizzle")) {
     descriptionElement.innerText = `Light Rain`;
+    iconElement.src = "images/little-rain-256.png";
   } else if ((weatherJson.weather[0].main = "Thunderstorm")) {
     descriptionElement.innerText = `Thunderstorms`;
+    iconElement.src = "images/storm-256.png";
   } else if ((weatherJson.weather[0].main = "Snow")) {
     descriptionElement.innerText = `Snowy`;
+    iconElement.src = "images/snow-256.png";
   } else {
     descriptionElement.innerText = `${weatherJson.weather[0].main}`;
+    iconElement.src = "images/snow-storm-256.png";
   }
   const feelsLikeElement = document.createElement("p");
   feelsLikeElement.innerText = `Feels like:\n${Math.floor(
@@ -86,37 +96,39 @@ const searchWeatherAndForecast = async () => {
   for (day of forecastJson.daily) {
     const dayElement = document.createElement("div");
     dayElement.className = `day${counter + 1} forecastElement`;
-    const dayHeaderElement = document.createElement("h3");
-    dayHeaderElement.innerText = `${counter + 1}`;
+    const dayIconElement = document.createElement("img");
+    dayIconElement.width = 20;
     const dayDescriptionElement = document.createElement("p");
     if (forecastJson.daily[counter].weather[0].main == "Clouds") {
       dayDescriptionElement.innerText = `Cloudy`;
+      dayIconElement.src = "images/clouds-256.png";
     } else if (forecastJson.daily[counter].weather[0].main == "Rain") {
       dayDescriptionElement.innerText = `Rainy`;
+      dayIconElement.src = "images/rain-256.png";
     } else if (forecastJson.daily[counter].weather[0].main == "Clear") {
       dayDescriptionElement.innerText = `Sunny`;
+      dayIconElement.src = "images/sun-256.png";
     } else if (forecastJson.daily[counter].weather[0].main == "Drizzle") {
       dayDescriptionElement.innerText = `Light Rain`;
+      dayIconElement.src = "images/little-rain-256.png";
     } else if (forecastJson.daily[counter].weather[0].main == "Thunderstorm") {
       dayDescriptionElement.innerText = `Thunderstorms`;
+      dayIconElement.src = "images/storm-256.png";
     } else if (forecastJson.daily[counter].weather[0].main == "Snow") {
       dayDescriptionElement.innerText = `Snowy`;
+      dayIconElement.src = "images/snow-256.png";
     } else {
       dayDescriptionElement.innerText = `${forecastJson.daily[counter].weather[0].main}`;
+      dayIconElement.src = "images/snow-strom-256.png";
     }
     const dayHighLowElement = document.createElement("p");
     dayHighLowElement.innerText = `${Math.floor(
       forecastJson.daily[counter].temp.max
     )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
-    dayElement.append(
-      dayHeaderElement,
-      dayDescriptionElement,
-      dayHighLowElement
-    );
+    dayElement.append(dayIconElement, dayDescriptionElement, dayHighLowElement);
     forecastContainer.append(dayElement);
     counter++;
   }
-
   const infoContainer = document.createElement("div");
   infoContainer.append(feelsLikeElement, windElement, humidityElement);
   infoContainer.className = "infoContainer";
@@ -124,6 +136,7 @@ const searchWeatherAndForecast = async () => {
   tempAndDescriptionContainer.className = "tempAndDescriptionContainer";
   tempAndDescriptionContainer.append(
     tempElement,
+    iconElement,
     descriptionElement,
     infoContainer
   );
@@ -134,6 +147,7 @@ const searchWeatherAndForecast = async () => {
 };
 
 searchButton.addEventListener("click", () => {
+  homeContainer.remove();
   printToday();
   searchWeatherAndForecast();
   weatherContainer.innerHTML = "";
