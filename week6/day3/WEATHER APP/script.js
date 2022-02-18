@@ -191,20 +191,23 @@ searchButton.addEventListener("click", () => {
   forecastContainer.innerHTML = "";
 });
 
-// ------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
-// const d = new Date();
-// let day = d.getDay();
-// let dayIndex = day + counter1;
-// if (dayIndex == 7) {
-//   counter1 = day - 2;
-// }
-// console.log(
-//   "day: ",
-//   day,
-//   "counter1: ",
-//   counter1,
-//   "dayIndex: ",
-//   dayIndex,
-//   "this is day 1:",
-//   daysOfWeek[dayIndex]
-// );
+//------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
+
+for (day of forecastJson.daily) {
+  const d = new Date();
+  let day = d.getDay();
+  let dayIndex = day + counter1;
+  if (dayIndex == 7) {
+    counter1 = day - 2;
+  }
+  console.log(
+    "day: ",
+    day,
+    "counter1: ",
+    counter1,
+    "dayIndex: ",
+    dayIndex,
+    "this is day 1:",
+    daysOfWeek[dayIndex]
+  );
+}
