@@ -1,28 +1,32 @@
 :root {
-  --yellow: #fbde44ff;
+  --yellow: #ffa500;
   --darkblue: #28334aff;
-  --orange: #f65058ff;
+  --orange: #fe6e00;
   --blue: #b8dfd8;
   --lightblue: #e8f6ef;
 }
 
 .weatherBody {
-  background-color: var(--lightblue);
-  color: var(--darkblue);
-  font-family: "Mulish", sans-serif;
+  background: rgb(255, 165, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 165, 0, 1) 35%,
+    rgba(254, 110, 0, 1) 100%
+  );
+  color: white;
+  font-family: "Quicksand", sans-serif;
 }
 
 .indexBody {
-  background-color: var(--yellow);
+  background-color: var(--orange);
   color: white;
-  font-family: "Mulish", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .todayContainer {
   font-size: 20px;
-  color: var(--darkblue);
+  color: white;
   border-radius: 40px;
-  background-color: var(--yellow);
   padding: 10px;
   margin: 30px;
   display: grid;
@@ -32,11 +36,10 @@
 
 .forecastContainer {
   font-size: 20px;
-  color: black;
 }
 
 .input {
-  background-color: var(--lightblue);
+  background-color: var(--yellow);
   height: 40px;
   width: 50%;
   font-size: 20px;
@@ -44,6 +47,12 @@
   text-align: right;
   padding-right: 12px;
   outline: none;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+  font-family: "Quicksand", sans-serif;
 }
 
 .searchButton {
@@ -52,9 +61,10 @@
   font-size: 20px;
   border: none;
   color: white;
-  background-color: var(--yellow);
+  background-color: var(--orange);
   cursor: pointer;
   border-radius: 10px;
+  font-family: "Quicksand", sans-serif;
 }
 
 .imgElement {
@@ -64,7 +74,7 @@
 }
 
 .forecastElement {
-  background-color: var(--darkblue);
+  background-color: rgba(255, 254, 254, 0.301);
   display: flex;
   justify-content: space-evenly;
   margin: 5px;
@@ -102,12 +112,13 @@
 }
 
 .tempAndDescriptionContainer {
-  background-color: var(--blue);
+  background-color: rgba(255, 254, 254, 0.301);
   width: 87%;
   margin: 20px;
   border-radius: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .infoContainer {
@@ -121,7 +132,7 @@
 }
 
 .infoElement {
-  background-color: var(--blue);
+  background-color: rgba(255, 254, 254, 0.301);
   padding: 10px;
   font-size: 17px;
   border-radius: 12px;

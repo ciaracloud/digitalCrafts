@@ -21,31 +21,6 @@ const printToday = () => {
   console.log("today is: ", daysOfWeek[day]);
 };
 
-const printOtherDays = () => {
-  const d = new Date();
-  let day = d.getDay();
-  let index = day;
-  console.log("this is the index: ", index);
-  counter1 = 1;
-  const dayIndex = day + counter1;
-  console.log("dayIndex: ", dayIndex, "this is day 1:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 2:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 3:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 4:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 4:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 6:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 7:", daysOfWeek[dayIndex]);
-  counter1++;
-  console.log("dayIndex: ", dayIndex, "this is day 8:", daysOfWeek[dayIndex]);
-  counter1++;
-};
-
 const searchWeatherAndForecast = async () => {
   todayContainer.innerHTML = "";
   const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?appid=bef0a4f4c45aebade1866b368f3734f3&zip=${input.value}&units=imperial`;
@@ -112,7 +87,7 @@ const searchWeatherAndForecast = async () => {
     const dayElement = document.createElement("div");
     dayElement.className = `day${counter + 1} forecastElement`;
     const dayHeaderElement = document.createElement("h3");
-    dayHeaderElement.innerText = `-- Day ${counter + 1} --`;
+    dayHeaderElement.innerText = `${counter + 1}`;
     const dayDescriptionElement = document.createElement("p");
     if (forecastJson.daily[counter].weather[0].main == "Clouds") {
       dayDescriptionElement.innerText = `Cloudy`;
@@ -155,9 +130,26 @@ const searchWeatherAndForecast = async () => {
 
 searchButton.addEventListener("click", () => {
   printToday();
-  printOtherDays();
   searchWeatherAndForecast();
   weatherContainer.innerHTML = "";
   input.value = "";
   forecastContainer.innerHTML = "";
 });
+
+// ------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
+// const d = new Date();
+// let day = d.getDay();
+// let dayIndex = day + counter1;
+// if (dayIndex == 7) {
+//   counter1 = day - 2;
+// }
+// console.log(
+//   "day: ",
+//   day,
+//   "counter1: ",
+//   counter1,
+//   "dayIndex: ",
+//   dayIndex,
+//   "this is day 1:",
+//   daysOfWeek[dayIndex]
+// );
