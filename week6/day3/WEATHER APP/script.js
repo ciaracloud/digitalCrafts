@@ -97,7 +97,9 @@ const searchWeatherAndForecast = async () => {
     const dayElement = document.createElement("div");
     dayElement.className = `day${counter + 1} forecastElement`;
     const dayIconElement = document.createElement("img");
-    dayIconElement.width = 20;
+    dayIconElement.width = 42;
+    dayIconElement.height = 42;
+    dayIconElement.className = "dayIconElement";
     const dayDescriptionElement = document.createElement("p");
     if (forecastJson.daily[counter].weather[0].main == "Clouds") {
       dayDescriptionElement.innerText = `Cloudy`;
