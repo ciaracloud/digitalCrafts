@@ -34,7 +34,10 @@ const searchWeatherAndForecast = async () => {
   cityElement.className = "cityElement";
   cityElement.innerText = `${weatherJson.name}`;
   const iconElement = document.createElement("img");
-  iconElement.width = 100;
+  iconElement.width = 170;
+  iconElement.className = "iconElement";
+  const hrElement = document.createElement("hr");
+  hrElement.className = "hrElement";
   const descriptionElement = document.createElement("p");
   descriptionElement.className = "descriptionElement";
   if ((weatherJson.weather[0].main = "Clouds")) {
@@ -140,6 +143,7 @@ const searchWeatherAndForecast = async () => {
     tempElement,
     iconElement,
     descriptionElement,
+    hrElement,
     infoContainer
   );
   console.log("forecast object: ", forecastJson);
