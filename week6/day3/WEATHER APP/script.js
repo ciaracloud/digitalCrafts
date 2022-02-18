@@ -116,14 +116,19 @@ const searchWeatherAndForecast = async () => {
     forecastContainer.append(dayElement);
     counter++;
   }
-  const tempAndDescriptionContainer = document.createElement("div");
-  tempAndDescriptionContainer.append(tempElement, descriptionElement);
-  tempAndDescriptionContainer.className = "tempAndDescriptionContainer";
+
   const infoContainer = document.createElement("div");
   infoContainer.append(feelsLikeElement, windElement, humidityElement);
   infoContainer.className = "infoContainer";
+  const tempAndDescriptionContainer = document.createElement("div");
+  tempAndDescriptionContainer.className = "tempAndDescriptionContainer";
+  tempAndDescriptionContainer.append(
+    tempElement,
+    descriptionElement,
+    infoContainer
+  );
   console.log("forecast object: ", forecastJson);
-  todayContainer.append(tempAndDescriptionContainer, imgElement, infoContainer);
+  todayContainer.append(tempAndDescriptionContainer, imgElement);
   weatherContainer.append(cityElement, todayContainer, forecastContainer);
   console.log("weather object: ", weatherJson);
 };

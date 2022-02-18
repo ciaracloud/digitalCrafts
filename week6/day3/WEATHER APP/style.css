@@ -39,7 +39,7 @@
 }
 
 .input {
-  background-color: var(--yellow);
+  background-color: var(--orange);
   height: 40px;
   width: 50%;
   font-size: 20px;
@@ -136,7 +136,7 @@
   padding: 10px;
   font-size: 17px;
   border-radius: 12px;
-  width: 25%;
+  width: 20%;
   margin: 0px;
   text-align: center;
 }
