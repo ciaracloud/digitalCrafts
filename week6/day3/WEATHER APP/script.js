@@ -7,22 +7,22 @@ const homeContainer = document.querySelector(".homeContainer");
 
 // functions
 const daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-  "Monday",
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat",
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat",
+  "Sun",
+  "Mon",
 ];
 
 // const printToday = () => {
@@ -81,10 +81,10 @@ const searchWeatherAndForecast = async () => {
   feelsLikeElement.className = "infoElement";
   feelsLikeElement.append(feelsLikeElement1, feelsLikeElement2);
   const windElement1 = document.createElement("p");
-  windElement1.innerText = `${Math.floor(weatherJson.wind.speed)} mi/h`;
+  windElement1.innerText = `${Math.floor(weatherJson.wind.speed)}`;
   windElement1.className = "infoElement1";
   const windElement2 = document.createElement("p");
-  windElement2.innerText = "Wind";
+  windElement2.innerText = "Wind in mph";
   windElement2.className = "infoElement2";
   const windElement = document.createElement("div");
   windElement.className = "infoElement";
@@ -149,33 +149,44 @@ const searchWeatherAndForecast = async () => {
       dayNameElement.innerText = `${daysOfWeek[counter1]}`;
       counter1++;
       const dayIconElement = document.createElement("img");
-      dayIconElement.width = 42;
-      dayIconElement.height = 42;
+      dayIconElement.width = 43;
+      dayIconElement.height = 43;
       dayIconElement.className = "dayIconElement";
       const dayDescriptionElement = document.createElement("p");
+      const dayImgElement = document.createElement("img");
+      dayImgElement.width = 42;
+      dayImgElement.height = 42;
+      dayImgElement.style.borderRadius = "10px";
       if (forecastJson.daily[counter].weather[0].main == "Clouds") {
         dayDescriptionElement.innerText = `Cloudy`;
         dayIconElement.src = "images/clouds-256.png";
+        dayImgElement.src = "images/cloudy.jpg";
       } else if (forecastJson.daily[counter].weather[0].main == "Rain") {
         dayDescriptionElement.innerText = `Rainy`;
         dayIconElement.src = "images/rain-256.png";
+        dayImgElement.src = "images/rainy.jpg";
       } else if (forecastJson.daily[counter].weather[0].main == "Clear") {
         dayDescriptionElement.innerText = `Sunny`;
         dayIconElement.src = "images/sun-256.png";
+        dayImgElement.src = "images/clear.jpg";
       } else if (forecastJson.daily[counter].weather[0].main == "Drizzle") {
         dayDescriptionElement.innerText = `Light Rain`;
         dayIconElement.src = "images/little-rain-256.png";
+        dayImgElement.src = "images/drizzle.jpg";
       } else if (
         forecastJson.daily[counter].weather[0].main == "Thunderstorm"
       ) {
         dayDescriptionElement.innerText = `Thunderstorms`;
         dayIconElement.src = "images/storm-256.png";
+        dayImgElement.src = "images/thunderstorm.jpg";
       } else if (forecastJson.daily[counter].weather[0].main == "Snow") {
         dayDescriptionElement.innerText = `Snowy`;
         dayIconElement.src = "images/snow-256.png";
+        dayImgElement.src = "images/snow.jpg";
       } else {
         dayDescriptionElement.innerText = `${forecastJson.daily[counter].weather[0].main}`;
         dayIconElement.src = "images/snow-strom-256.png";
+        dayImgElement.src = "images/other.jpg";
       }
       const dayHighLowElement = document.createElement("p");
       dayHighLowElement.innerText = `${Math.floor(
@@ -183,7 +194,7 @@ const searchWeatherAndForecast = async () => {
       )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
       dayElement.append(
         dayNameElement,
-        dayIconElement,
+        dayImgElement,
         dayDescriptionElement,
         dayHighLowElement
       );
