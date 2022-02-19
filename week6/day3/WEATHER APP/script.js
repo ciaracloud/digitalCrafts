@@ -14,13 +14,22 @@ const daysOfWeek = [
   "Thursday",
   "Friday",
   "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Monday",
 ];
 
-const printToday = () => {
-  const d = new Date();
-  let day = d.getDay();
-  console.log("today is: ", daysOfWeek[day]);
-};
+// const printToday = () => {
+//   const d = new Date();
+//   let day = d.getDay();
+//   console.log("today is: ", daysOfWeek[day]);
+// };
 
 const searchWeatherAndForecast = async () => {
   todayContainer.innerHTML = "";
@@ -113,11 +122,18 @@ const searchWeatherAndForecast = async () => {
   const forecast = await fetch(forecastUrl);
   const forecastJson = await forecast.json();
   counter = 0;
+  const d = new Date();
+  let toDay = d.getDay();
+  counter1 = toDay + 1;
   forecastButton.addEventListener("click", () => {
     forecastButton.remove();
     for (day of forecastJson.daily) {
       const dayElement = document.createElement("div");
       dayElement.className = `day${counter + 1} forecastElement`;
+      const dayNameElement = document.createElement("p");
+      dayNameElement.className = "dayNameElement";
+      dayNameElement.innerText = `${daysOfWeek[counter1]}`;
+      counter1++;
       const dayIconElement = document.createElement("img");
       dayIconElement.width = 42;
       dayIconElement.height = 42;
@@ -152,6 +168,7 @@ const searchWeatherAndForecast = async () => {
         forecastJson.daily[counter].temp.max
       )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
       dayElement.append(
+        dayNameElement,
         dayIconElement,
         dayDescriptionElement,
         dayHighLowElement
@@ -184,30 +201,27 @@ const searchWeatherAndForecast = async () => {
 
 searchButton.addEventListener("click", () => {
   homeContainer.remove();
-  printToday();
+  // printToday();
   searchWeatherAndForecast();
   weatherContainer.innerHTML = "";
   input.value = "";
   forecastContainer.innerHTML = "";
 });
 
-//------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
-
-for (day of forecastJson.daily) {
-  const d = new Date();
-  let day = d.getDay();
-  let dayIndex = day + counter1;
-  if (dayIndex == 7) {
-    counter1 = day - 2;
-  }
-  console.log(
-    "day: ",
-    day,
-    "counter1: ",
-    counter1,
-    "dayIndex: ",
-    dayIndex,
-    "this is day 1:",
-    daysOfWeek[dayIndex]
-  );
-}
+// ------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
+// const d = new Date();
+// let day = d.getDay();
+// let dayIndex = day + counter1;
+// if (dayIndex == 7) {
+//   counter1 = day - 2;
+// }
+// console.log(
+//   "day: ",
+//   day,
+//   "counter1: ",
+//   counter1,
+//   "dayIndex: ",
+//   dayIndex,
+//   "this is day 1:",
+//   daysOfWeek[dayIndex]
+// );
