@@ -71,19 +71,33 @@ const searchWeatherAndForecast = async () => {
     descriptionElement.innerText = `${weatherJson.weather[0].main}`;
     iconElement.src = "images/snow-storm-256.png";
   }
-  const feelsLikeElement = document.createElement("p");
-  feelsLikeElement.innerText = `Feels like:\n${Math.floor(
-    weatherJson.main.feels_like
-  )}° F`;
+  const feelsLikeElement1 = document.createElement("p");
+  feelsLikeElement1.innerText = `${Math.floor(weatherJson.main.feels_like)}° F`;
+  feelsLikeElement1.className = "infoElement1";
+  const feelsLikeElement2 = document.createElement("p");
+  feelsLikeElement2.innerText = "Feels like";
+  feelsLikeElement2.className = "infoElement2";
+  const feelsLikeElement = document.createElement("div");
   feelsLikeElement.className = "infoElement";
-  const windElement = document.createElement("p");
-  windElement.innerText = `Wind:\n${Math.floor(weatherJson.wind.speed)} mi/h`;
+  feelsLikeElement.append(feelsLikeElement1, feelsLikeElement2);
+  const windElement1 = document.createElement("p");
+  windElement1.innerText = `${Math.floor(weatherJson.wind.speed)} mi/h`;
+  windElement1.className = "infoElement1";
+  const windElement2 = document.createElement("p");
+  windElement2.innerText = "Wind";
+  windElement2.className = "infoElement2";
+  const windElement = document.createElement("div");
   windElement.className = "infoElement";
-  const humidityElement = document.createElement("p");
-  humidityElement.innerText = `Humidity:\n${Math.floor(
-    weatherJson.main.humidity
-  )}`;
+  windElement.append(windElement1, windElement2);
+  const humidityElement1 = document.createElement("p");
+  humidityElement1.innerText = `${Math.floor(weatherJson.main.humidity)}%`;
+  humidityElement1.className = "infoElement1";
+  const humidityElement2 = document.createElement("p");
+  humidityElement2.innerText = "Humidity";
+  humidityElement2.className = "infoElement2";
+  const humidityElement = document.createElement("div");
   humidityElement.className = "infoElement";
+  humidityElement.append(humidityElement1, humidityElement2);
   const imgElement = document.createElement("img");
   imgElement.className = "imgElement";
   const forecastButton = document.createElement("button");
