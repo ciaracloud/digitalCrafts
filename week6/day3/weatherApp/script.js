@@ -24,9 +24,10 @@ const daysOfWeek = [
   "Monday",
 ];
 
+const apiKey = "bef0a4f4c45aebade1866b368f3734f3";
 const searchWeatherAndForecast = async () => {
   todayContainer.innerHTML = "";
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?appid=bef0a4f4c45aebade1866b368f3734f3&zip=${input.value}&units=imperial`;
+  const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&zip=${input.value}&units=imperial`;
   const weather = await fetch(weatherUrl);
   const weatherJson = await weather.json();
   const tempElement = document.createElement("p");
@@ -125,7 +126,7 @@ const searchWeatherAndForecast = async () => {
     quoteElement.innerText = `Scrambled eggs in ${weatherJson.name}!`;
   }
 
-  const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherJson.coord.lat}&lon=${weatherJson.coord.lon}&appid=bef0a4f4c45aebade1866b368f3734f3&units=imperial`;
+  const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherJson.coord.lat}&lon=${weatherJson.coord.lon}&appid=${apiKey}&units=imperial`;
   const forecast = await fetch(forecastUrl);
   const forecastJson = await forecast.json();
   counter = 0;
