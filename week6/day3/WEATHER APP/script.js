@@ -5,31 +5,24 @@ const forecastContainer = document.querySelector(".forecastContainer");
 const weatherContainer = document.querySelector(".weatherContainer");
 const homeContainer = document.querySelector(".homeContainer");
 
-// functions
 const daysOfWeek = [
-  "Sun",
-  "Mon",
-  "Tues",
-  "Wed",
-  "Thurs",
-  "Fri",
-  "Sat",
-  "Sun",
-  "Mon",
-  "Tues",
-  "Wed",
-  "Thurs",
-  "Fri",
-  "Sat",
-  "Sun",
-  "Mon",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Monday",
 ];
-
-// const printToday = () => {
-//   const d = new Date();
-//   let day = d.getDay();
-//   console.log("today is: ", daysOfWeek[day]);
-// };
 
 const searchWeatherAndForecast = async () => {
   todayContainer.innerHTML = "";
@@ -72,7 +65,7 @@ const searchWeatherAndForecast = async () => {
     iconElement.src = "images/snow-storm-256.png";
   }
   const feelsLikeElement1 = document.createElement("p");
-  feelsLikeElement1.innerText = `${Math.floor(weatherJson.main.feels_like)}° F`;
+  feelsLikeElement1.innerText = `${Math.floor(weatherJson.main.feels_like)}°F`;
   feelsLikeElement1.className = "infoElement1";
   const feelsLikeElement2 = document.createElement("p");
   feelsLikeElement2.innerText = "Feels like";
@@ -149,13 +142,14 @@ const searchWeatherAndForecast = async () => {
       dayNameElement.innerText = `${daysOfWeek[counter1]}`;
       counter1++;
       const dayIconElement = document.createElement("img");
-      dayIconElement.width = 43;
-      dayIconElement.height = 43;
+      dayIconElement.width = 38;
+      dayIconElement.height = 38;
       dayIconElement.className = "dayIconElement";
       const dayDescriptionElement = document.createElement("p");
       const dayImgElement = document.createElement("img");
-      dayImgElement.width = 42;
-      dayImgElement.height = 42;
+      dayImgElement.width = 44;
+      dayImgElement.height = 44;
+      dayImgElement.className = "dayImgElement";
       dayImgElement.style.borderRadius = "10px";
       if (forecastJson.daily[counter].weather[0].main == "Clouds") {
         dayDescriptionElement.innerText = `Cloudy`;
@@ -193,9 +187,9 @@ const searchWeatherAndForecast = async () => {
         forecastJson.daily[counter].temp.max
       )}°/${Math.floor(forecastJson.daily[counter].temp.min)}°`;
       dayElement.append(
-        dayNameElement,
         dayImgElement,
-        dayDescriptionElement,
+        dayNameElement,
+        dayIconElement,
         dayHighLowElement
       );
       quoteAndForecastContainer.append(dayElement);
@@ -226,27 +220,8 @@ const searchWeatherAndForecast = async () => {
 
 searchButton.addEventListener("click", () => {
   homeContainer.remove();
-  // printToday();
   searchWeatherAndForecast();
   weatherContainer.innerHTML = "";
   input.value = "";
   forecastContainer.innerHTML = "";
 });
-
-// ------------ PRINT DAYS OF WEEK (PUT IN LOOP) ------------
-// const d = new Date();
-// let day = d.getDay();
-// let dayIndex = day + counter1;
-// if (dayIndex == 7) {
-//   counter1 = day - 2;
-// }
-// console.log(
-//   "day: ",
-//   day,
-//   "counter1: ",
-//   counter1,
-//   "dayIndex: ",
-//   dayIndex,
-//   "this is day 1:",
-//   daysOfWeek[dayIndex]
-// );
