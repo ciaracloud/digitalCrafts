@@ -5,6 +5,8 @@ const forecastContainer = document.querySelector(".forecastContainer");
 const weatherContainer = document.querySelector(".weatherContainer");
 const homeContainer = document.querySelector(".homeContainer");
 
+
+
 const daysOfWeek = [
   "Sunday",
   "Monday",
