@@ -13,3 +13,5 @@ let songs = [
     songTitles: ["Glory", "My Heart Races On", "Psycho", "I Feel Good"],
   },
 ];
+
+module.exports = songs;
