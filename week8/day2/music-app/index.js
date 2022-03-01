@@ -22,7 +22,6 @@ app.get("/cds", (req, res) => {
 
 app.get("/:paramaters", (req, res) => {
   const number = req.params.paramaters;
-  console.log(number);
   let page = `<img src=${songs[number].imgURL} width=200px>
   <h1>${songs[number].name}</h1>
   <ul>`;
@@ -33,15 +32,15 @@ app.get("/:paramaters", (req, res) => {
   res.send(page);
 });
 
-app.get("/1", (req, res) => {
-  let page1 = `<img src=${songs[1].imgURL} width=200px>
-  <h1>${songs[1].name}</h1>
-  <ul>`;
-  for (songTitle of songs[1].songTitles) {
-    page1 += `<li>${songTitle}</li>`;
-  }
-  page1 += `</ul>`;
-  res.send(page1);
-});
+// app.get("/1", (req, res) => {
+//   let page1 = `<img src=${songs[1].imgURL} width=200px>
+//   <h1>${songs[1].name}</h1>
+//   <ul>`;
+//   for (songTitle of songs[1].songTitles) {
+//     page1 += `<li>${songTitle}</li>`;
+//   }
+//   page1 += `</ul>`;
+//   res.send(page1);
+// });
 
 app.listen(PORT, console.log(`listening to http://localhost:${PORT}`));
