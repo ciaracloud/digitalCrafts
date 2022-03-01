@@ -30,4 +30,8 @@ app.get("/greet/Han", (req, res) => {
   res.send("Hello, Han!");
 });
 
+app.get("/greet/Tiana", (req, res) => {
+  res.send("<h1>Hello, Tiana!</h1>");
+});
+
 app.listen(PORT, console.log(`listening on http://localhost:${PORT}`));
