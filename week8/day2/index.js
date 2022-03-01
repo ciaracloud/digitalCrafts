@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-// middleware
-app.use(express.json());
+// middleware (jumps in between the request and the response and does something for you)
+app.use(express.json()); //converts requests to JSON
 PORT = 3000;
 const studentDB = [
   { name: "Santos" },
@@ -13,11 +13,12 @@ const studentDB = [
 // routes for CRUD (create, read, update, delete)
 // create
 app.post("/create_user", (req, res) => {
-  console.log(req.body);
-  //   const studentToAdd = {
-  //     name: "Jarrod",
-  //   };
-  //   studentDB.push(studentToAdd);
+  // formatting the data to always match how have the db set up as
+  const values = Object.values(req.body);
+  const theRightWayToSendData = {
+    name: values[0],
+  };
+  studentDB.push(theRightWayToSendData);
   res.send(studentDB);
 });
 
@@ -38,8 +39,12 @@ app.get("/", (req, res) => {
 });
 
 // update
-app.get("/update_users", (req, res) => {
-  res.send("/update_users");
+app.post("/update_users", (req, res) => {
+  const studentFound = studentDB.find((student) => student.name === "Santos");
+  console.log(studentFound);
+  studentFound.name = "SanToast";
+  studentDB[0] = studentFound;
+  res.send(studentDB);
 });
 
 // delete
