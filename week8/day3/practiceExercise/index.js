@@ -19,11 +19,11 @@ app.set("view engine", "ejs");
 app.use(express.static("./public"));
 
 app.get("/", (req, res) => {
-  res.render("pages/homePage");
+  res.render("pages/homePage", { pictures: urlList });
 });
 
 app.get("/about", (req, res) => {
-  res.render("pages/aboutPage");
+  res.render("pages/aboutPage", { pictures: urlList });
 });
 
 app.listen(PORT, console.log(`listening on http://localhost${PORT}`));
