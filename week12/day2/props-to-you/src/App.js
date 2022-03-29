@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <h1>Passing Props</h1>
-      <House rooms={rooms} />
+      {/* <House rooms={rooms} /> */}
     </div>
   );
 }
