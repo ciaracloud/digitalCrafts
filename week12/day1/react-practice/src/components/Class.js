@@ -34,10 +34,7 @@ class ClassComponent extends React.Component {
         <button name="decrement" onClick={(e) => this.changeCount(e)}>
           Decrement
         </button>
-        <input
-          onChange={(e) => (this.inputWord = e.target.value)}
-          type="text"
-        />
+        <input onChange={(e) => inputWord.e.target.value} type="text" />
         <button onClick={this.printInput}>Submit</button>
         <h1>{this.state.word}</h1>
       </div>
