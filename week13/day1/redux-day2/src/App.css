@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+  border: 3px solid black;
+  height: 98vh;
+}
+
+.layoutContainer {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.productContainer,
+.cart {
+  border: solid 3px black;
+  height: auto;
+  width: 100%;
+}
+
+.productImage {
+  height: 5rem;
+}
+
+.singleProduct {
+  display: flex;
+  justify-content: space-between;
+}
